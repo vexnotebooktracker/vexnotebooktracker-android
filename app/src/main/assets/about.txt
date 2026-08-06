@@ -1,0 +1,27 @@
+Version: 2.0
+
+In recent years, there have been unfortunate incidents where Notebook URLs have been leaked—either to the public or to competing teams. These breaches compromise the confidentiality of team innovations and can give unfair competitive advantages to those who gain unauthorized access.
+
+Some leaks were discovered and reported to VEX, while others went undetected, with teams unaware their confidential work had been exposed. Our team has been a victim of both types of leaks.
+
+The most publicly documented incident occurred at the 2025 New Jersey High Stakes States competition, where Notebook URLs were leaked. However, this represents only the known cases. The true extent of the problem, including silent leaks, remains unknown.
+
+Even when leaks occur during a competition, the impact extends beyond that single event. While competitors may not benefit immediately at the same competition, they can incorporate stolen ideas and strategies into subsequent competitions within the same season or in future seasons.
+
+My Unique Solution
+==================
+I've developed a solution that addresses the security vulnerabilities in the Notebook submission process:
+
+Enhanced Security Features:
+
+* Custom Short URLs: Generate unique, trackable short URLs for your Notebook to submit to competitions, rather than using standard Google Drive or other platform links
+
+* Comprehensive View Tracking: Monitor all Notebook views with detailed logs that capture when, where, and how your Notebook is accessed
+
+* Device Restrictions: Optionally block viewing from mobile devices to limit unauthorized access
+
+* Evidence Collection: Automatically collect evidence of suspicious viewing activity, such as access from multiple locations or devices, which can be used when filing complaints with competition organizers or VEX
+
+This approach gives teams control and visibility over who accesses their confidential work, while maintaining compliance with competition submission requirements.
+
+Read more at http://VEXTeams.org/about

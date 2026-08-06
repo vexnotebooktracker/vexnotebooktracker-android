@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Info -->
+    <string name="app_name">VEX Notebook Track &amp; Protect</string>
+
+    <!-- Login Screen -->
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="forgot_password">Reset Password</string>
+    <string name="login_app_title">VEX Notebook Track &amp; Protect</string>
+
+    <!-- Sign-Up Screen -->
+    <string name="signup_title">Sign Up</string>
+    <string name="signup_header">Join VEX Notebook Tracker</string>
+    <string name="confirm_email_hint">Confirm Email</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="role_hint">Select your role</string>
+    <string name="team_number_hint">Team number (e.g., 123A)</string>
+    <string name="phone_hint">Phone (Optional)</string>
+    <string name="creating_account">Creating Account...</string>
+    <string name="already_have_account">Already have an account? Log in</string>
+
+    <!-- Role Options -->
+    <string name="role_team_member">Team Member/Captain</string>
+    <string name="role_coach_advisor">School/Coach/Advisor</string>
+
+    <!-- Format Helper Text -->
+    <string name="team_number_format">Format: 123A (digits + optional letter)</string>
+    <string name="phone_format">Format: +1 1234567890</string>
+
+    <!-- Password Requirements -->
+    <string name="password_requirements_title">Password Requirements:</string>
+    <string name="password_requirements">8-32 characters\nAt least 1 lowercase letter\nAt least 1 uppercase letter\nAt least 1 number\nAt least 1 special character</string>
+
+    <!-- Validation Messages -->
+    <string name="email_mismatch">Emails do not match</string>
+    <string name="password_mismatch">Passwords do not match</string>
+    <string name="name_too_short">Must be at least 2 characters</string>
+    <string name="email_too_long">Email too long (max 249 characters)</string>
+    <string name="password_too_long">Password too long (max 32 characters)</string>
+    <string name="password_too_short">Password too short (min 8 characters)</string>
+    <string name="password_missing_lowercase">Password must contain at least 1 lowercase letter</string>
+    <string name="password_missing_uppercase">Password must contain at least 1 uppercase letter</string>
+    <string name="password_missing_number">Password must contain at least 1 number</string>
+    <string name="password_missing_special">Password must contain at least 1 special character</string>
+    <string name="email_already_registered">Email already registered</string>
+
+    <!-- Main Screen -->
+    <string name="welcome_message">Welcome to VEX Notebook Tracker!</string>
+    <string name="welcome_message_emoji">Welcome to VEX Notebook Tracker!</string>
+    <string name="logout_button_emoji">Logout</string>
+
+    <!-- Dashboard Buttons -->
+    <string name="register_notebook">📝 Register Notebook</string>
+
+    <!-- Profile Management -->
+    <string name="delete_profile_title">Delete Profile</string>
+    <string name="delete_profile_message">Are you sure you want to permanently delete your profile?\n\nThis action cannot be undone and will:\n• Delete all your notebooks\n• Remove all your data\n• Log you out of all devices\n\nType \"DELETE\" to confirm:</string>
+    <string name="delete_profile_confirm_hint">Type DELETE to confirm</string>
+    <string name="delete_profile_processing">Deleting profile...</string>
+    <string name="delete_profile_confirmation_invalid">Please type \"DELETE\" to confirm</string>
+
+    <!-- Status Messages -->
+    <string name="main_screen_success">Material Design Working!\nMain screen loaded successfully!</string>
+
+    <!-- User Info -->
+    <string name="user_information">User Information</string>
+
+    <!-- Features -->
+    <string name="features_title">VEX Features Coming Soon</string>
+    <string name="vex_features_coming_soon">Digital Engineering Notebook\nTeam Collaboration Tools\nMatch Strategy Planning\nTournament Progress Tracking\nAward Documentation\nPhoto Management\nMeeting Notes</string>
+
+    <!-- Error Messages -->
+    <string name="error_main_activity">MainActivity Error</string>
+
+    <!-- Validation Messages -->
+    <string name="email_required">Email is required</string>
+    <string name="password_required">Password is required</string>
+
+    <!-- Common -->
+    <string name="loading">Loading...</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <!-- Help Content Descriptions -->
+    <string name="help_role">Help for role selection</string>
+    <string name="help_team_number">Help for team number format</string>
+    <string name="help_phone">Help for phone number usage</string>
+    <string name="help_redirection_type">Help for redirection type selection</string>
+
+    <!-- Edit Profile Screen -->
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="edit_profile_header">Update Your Profile</string>
+    <string name="update_profile_button">Update Profile</string>
+    <string name="updating_profile">Updating Profile…</string>
+
+    <!-- Password Change Section -->
+    <string name="change_password_section">Change Password (Optional)</string>
+    <string name="current_password_hint">Current Password</string>
+    <string name="new_password_hint">New Password</string>
+    <string name="confirm_new_password_hint">Confirm New Password</string>
+
+    <!-- Success/Error Messages -->
+    <string name="profile_update_success">Profile updated successfully!</string>
+
+    <!-- About Screen -->
+    <string name="about_title">About</string>
+    <string name="loading_content">Loading content...</string>
+    <string name="error_loading_about">Error loading About screen: %s</string>
+    <string name="about_content_file">about.txt</string>
+    <string name="about_content_empty">Content file is empty</string>
+    <string name="about_unable_to_load">Unable to load content: %s</string>
+    <string name="about_error_title">❌ Error Loading Content</string>
+    <string name="about_error_instructions">Please make sure the \'about.txt\' file exists in the \'app/src/main/assets\' folder.\n\nIf the problem persists, please contact support.</string>
+
+    <!-- Simply Four Steps Screen -->
+    <string name="simply_four_steps_title">Simply Four Steps</string>
+    <string name="error_loading_simply_four_steps">Error loading Simply Four Steps screen: %s</string>
+    <string name="simply_four_steps_content_file">simply_four_steps.txt</string>
+    <string name="simply_four_steps_content_empty">Content file is empty</string>
+    <string name="simply_four_steps_unable_to_load">Unable to load content: %s</string>
+    <string name="simply_four_steps_error_title">❌ Error Loading Content</string>
+    <string name="simply_four_steps_error_instructions">Please make sure the \'simply_four_steps.txt\' file exists in the \'app/src/main/assets\' folder.\n\nIf the problem persists, please contact support.</string>
+    <string name="error_opening_simply_four_steps">Error opening Simply Four Steps</string>
+
+    <!-- Contact Screen -->
+    <string name="contact_title">Contact Us</string>
+    <string name="error_loading_contact">Error loading Contact screen: %s</string>
+    <string name="send_feedback_button">Send Feedback</string>
+    <string name="sending_feedback">Sending…</string>
+    <string name="contact_feedback_header">Send us your feedback</string>
+    <string name="contact_feedback_subheader">We\'d love to hear from you! Share your thoughts, suggestions, or report any issues.</string>
+    <string name="feedback_hint">Feedback</string>
+    <string name="success_checkmark">✅</string>
+    <string name="developer_contact_header">📧 Developer Contact</string>
+    <string name="developer_contact_info">Your feedback will be sent directly to the development team. We typically respond within 24-48 hours.</string>
+
+    <!-- Feedback Validation -->
+    <string name="feedback_empty">Please enter your feedback</string>
+    <string name="feedback_too_short">Feedback must be at least %d characters</string>
+    <string name="feedback_too_long">Feedback must not exceed %d characters</string>
+    <string name="feedback_success">Thank you! Your feedback has been sent successfully.</string>
+    <string name="feedback_error">❌ %s</string>
+
+    <!-- SignUp Screen -->
+    <string name="error_signup_activity">SignUpActivity Error: %s</string>
+    <string name="got_it">Got it</string>
+    <string name="signup_error">❌ %s</string>
+    <string name="signup_success_toast">✅ %s</string>
+
+    <!-- Help Dialog Titles -->
+    <string name="help_team_number_title">Team Number Format</string>
+    <string name="help_phone_title">Phone Number (Optional)</string>
+    <string name="help_role_title">Select Your Role</string>
+
+    <!-- Help Dialog Messages -->
+    <string name="help_team_number_message">Format depends on your role:\n\n• Team Members/Captains: Must include letter (e.g., 1234A, 5678B)\n\n• Coaches/Advisors: Letter is not needed All letters A-Z will be assigned. (e.g., 1234)\n\nThis helps coaches manage multiple teams while ensuring team members specify their exact team.</string>
+    <string name="help_phone_message">Only used to display to judges to contact you in case of any technical issues during competitions.\n\nFormat: +1 1234567890\n\nThis field is completely optional and will only be shared with VEX competition officials when necessary.</string>
+    <string name="help_role_message">Choose your role in the VEX team:\n\n• Team Member/Captain: Students participating in the competition\n\n• Coach/Advisor: Adult supervisors, teachers, or mentors guiding the team\n\nThis helps us understand your relationship to the team for proper access and communication.</string>
+
+    <!-- Password Requirements Display -->
+    <string name="password_req_length_met">✅ At least 8 characters\n</string>
+    <string name="password_req_length_not_met">❌ At least 8 characters\n</string>
+    <string name="password_req_lowercase_met">✅ At least 1 lowercase letter\n</string>
+    <string name="password_req_lowercase_not_met">❌ At least 1 lowercase letter\n</string>
+    <string name="password_req_uppercase_met">✅ At least 1 uppercase letter\n</string>
+    <string name="password_req_uppercase_not_met">❌ At least 1 uppercase letter\n</string>
+    <string name="password_req_number_met">✅ At least 1 number\n</string>
+    <string name="password_req_number_not_met">❌ At least 1 number\n</string>
+    <string name="password_req_special_met">✅ At least 1 special character</string>
+    <string name="password_req_special_not_met">❌ At least 1 special character</string>
+
+    <!-- SignUp ViewModel Messages -->
+    <string name="signup_success_message">Account created successfully! Please log in.</string>
+    <string name="email_invalid_format">Invalid email format</string>
+    <string name="email_too_long_signup">Email too long (max 249 characters)</string>
+    <string name="email_already_registered_short">Email already registered</string>
+    <string name="email_availability_check_failed_short">Unable to check email availability</string>
+    <string name="password_too_long_signup">Password too long (max 32 characters)</string>
+    <string name="password_too_short_signup">Password too short (min 8 characters)</string>
+    <string name="password_missing_lowercase_short">Missing lowercase letter</string>
+    <string name="password_missing_uppercase_short">Missing uppercase letter</string>
+    <string name="password_missing_number_short">Missing number</string>
+    <string name="password_missing_special_short">Missing special character</string>
+    <string name="team_number_format_team_member">Team members must use format: digits + letter (e.g., 123A)</string>
+    <string name="team_number_format_coach">Use format: digits or digits + letter (e.g., 123 or 123A)</string>
+    <string name="team_number_format_default">Invalid format. Use digits + optional letter (e.g., 123A)</string>
+    <string name="phone_format_invalid">Invalid format. Use +countryCode phoneNumber (e.g., +1 1234567890)</string>
+
+    <!-- SignUp Validation Messages -->
+    <string name="password_not_meet_requirements">Password does not meet requirements</string>
+    <string name="team_number_format_invalid">Invalid team number format</string>
+    <string name="phone_format_invalid_short">Invalid phone number format</string>
+    <string name="email_issue">Email issue: %s</string>
+    <string name="email_confirmation_required_short">Email confirmation is required</string>
+    <string name="emails_do_not_match_short">Emails do not match</string>
+    <string name="password_confirmation_required_short">Password confirmation is required</string>
+    <string name="passwords_do_not_match_short">Passwords do not match</string>
+    <string name="first_name_required_short">First name is required</string>
+    <string name="first_name_too_short">First name too short</string>
+    <string name="last_name_required_short">Last name is required</string>
+    <string name="last_name_too_short">Last name too short</string>
+
+    <!-- Register Notebook Screen -->
+    <string name="error_open_help">Unable to open help page. Please check your browser.</string>
+    <string name="short_url_too_short">Must be at least %1$d characters</string>
+    <string name="short_url_too_long">Must not exceed %1$d characters</string>
+    <string name="short_url_unavailable">Short URL not available</string>
+    <string name="url_must_start_https">URL must start with https://</string>
+    <string name="url_incomplete">Please enter a complete URL</string>
+    <string name="short_url_required">Short URL is required</string>
+    <string name="notebook_url_required">Notebook URL is required</string>
+    <string name="start_date_required">Start date is required</string>
+    <string name="end_date_required">End date is required</string>
+    <string name="redirection_type_required">Please select a redirection type</string>
+    <string name="team_required">Please select a team</string>
+    <string name="fix_errors_above">Please fix the errors above</string>
+    <string name="registration_success">Notebook registered successfully!</string>
+    <string name="registration_failed">Registration failed</string>
+    <string name="server_error">Server error: %1$d %2$s</string>
+    <string name="registration_error">Registration failed: %1$s</string>
+    <string name="registration_screen_error">Registration Error: %1$s</string>
+    <string name="redirection_help_url">https://vexteams.org/help/redirection.html</string>
+    <string name="short_url_hint">🔗 Short URL</string>
+    <string name="short_url_helper_text">Max 16 characters (letters, numbers, -, _)</string>
+    <string name="short_url_available">Available</string>
+    <string name="notebook_url_hint">🌐 Notebook URL</string>
+    <string name="start_date_time_hint">📅 Start Date &amp; Time</string>
+    <string name="end_date_time_hint">📅 End Date &amp; Time</string>
+    <string name="date_format_helper">YYYY-MM-DD HH:mm</string>
+    <string name="pick_date_description">Pick date</string>
+    <string name="redirection_type_hint">🔄 Redirection Type</string>
+    <string name="team_hint">👥 Team</string>
+    <string name="prevent_mobile_viewing">📱 Prevent Viewing on Mobile Devices</string>
+    <string name="cancel_button_text">❌ Cancel</string>
+    <string name="register_button_text">✅ Register</string>
+
+    <!-- Login Activity Strings -->
+    <string name="login_activity_error">LoginActivity Error: %1$s</string>
+    <string name="specify_email_reset">ℹ️ Please specify your email and click Reset Password again</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="sign_in">Sign In</string>
+    <string name="navigate_to_signup">Navigate to SignUp</string>
+    <string name="navigate_to_forgot_password">Navigate to Forgot Password</string>
+    <string name="error_opening_signup">❌ Error opening sign-up screen</string>
+    <string name="error_opening_contact">❌ Error opening contact screen</string>
+    <string name="error_opening_about">❌ Error opening about screen</string>
+    <string name="error_prefix">❌ %1$s</string>
+    <string name="success_prefix">✅ %1$s</string>
+    <string name="check_email">Check your email</string>
+    <string name="check_password">Check your password</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="login_error">Login Error: %1$s</string>
+    <string name="success_message">Success: %1$s</string>
+
+    <!-- LoginViewModel Strings -->
+    <string name="error_email_required">Please enter your email address</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="error_password_required">Please enter your password</string>
+    <string name="error_password_too_short">Password must be at least 6 characters long</string>
+    <string name="error_email_required_first">Please enter your email address first</string>
+
+    <!-- EditProfileActivity Strings -->
+    <string name="edit_profile_activity_error">EditProfileActivity Error: %1$s</string>
+
+    <!-- Help Dialog Titles -->
+    <string name="help_password_title">Change Password</string>
+
+    <!-- Help Dialog Messages -->
+    <string name="help_password_message">Leave password fields empty if you don\'t want to change your password.\n\nTo change your password:\n1. Enter your current password\n2. Enter your new password\n3. Confirm your new password\n\nNew password must meet all security requirements.</string>
+
+    <!-- Toast Messages -->
+    <string name="toast_error_prefix">❌ %1$s</string>
+    <string name="toast_success_prefix">✅ %1$s</string>
+
+    <!-- Password Requirements -->
+    <string name="password_requirement_length_met">✅ At least 8 characters\n</string>
+    <string name="password_requirement_length_unmet">❌ At least 8 characters\n</string>
+    <string name="password_requirement_lowercase_met">✅ At least 1 lowercase letter\n</string>
+    <string name="password_requirement_lowercase_unmet">❌ At least 1 lowercase letter\n</string>
+    <string name="password_requirement_uppercase_met">✅ At least 1 uppercase letter\n</string>
+    <string name="password_requirement_uppercase_unmet">❌ At least 1 uppercase letter\n</string>
+    <string name="password_requirement_number_met">✅ At least 1 number\n</string>
+    <string name="password_requirement_number_unmet">❌ At least 1 number\n</string>
+    <string name="password_requirement_special_met">✅ At least 1 special character</string>
+    <string name="password_requirement_special_unmet">❌ At least 1 special character</string>
+
+    <!-- EditProfileViewModel Strings -->
+    <string name="profile_update_failed_load">Failed to load profile data</string>
+    <string name="email_too_long_249">Email too long (max 249 characters)</string>
+    <string name="email_check_unavailable">Unable to check email availability</string>
+    <string name="help_password_change">Help for password change</string>
+
+    <!-- Team Number Validation -->
+    <string name="team_number_required">Team number is required</string>
+    <string name="team_number_error_member">Team members must use format: digits + letter (e.g., 123A)</string>
+    <string name="team_number_error_coach">Use format: digits or digits + letter (e.g., 123 or 123A)</string>
+    <string name="team_number_error_default">Invalid format. Use digits + optional letter (e.g., 123A)</string>
+
+    <!-- Phone Number Validation -->
+    <string name="phone_invalid_format">Invalid format. Use +countryCode phoneNumber (e.g., +1 1234567890)</string>
+
+    <!-- General Validation Errors -->
+    <string name="error_email_too_long">Email too long</string>
+    <string name="error_email_confirmation_required">Email confirmation is required</string>
+    <string name="error_emails_do_not_match">Emails do not match</string>
+    <string name="error_first_name_required">First name is required</string>
+    <string name="error_first_name_too_short">First name too short</string>
+    <string name="error_last_name_required">Last name is required</string>
+    <string name="error_last_name_too_short">Last name too short</string>
+    <string name="error_team_number_invalid">Invalid team number format</string>
+    <string name="error_phone_invalid">Invalid phone number format</string>
+    <string name="error_current_password_required">Current password is required to change password</string>
+    <string name="error_new_password_requirements">New password does not meet requirements</string>
+    <string name="error_password_too_long">Password is too long</string>
+    <string name="error_password_confirmation_required">Password confirmation is required</string>
+    <string name="error_new_passwords_do_not_match">New passwords do not match</string>
+    <string name="error_email_issue">Email issue: %1$s</string>
+    <string name="validation_errors_prefix">Please fix the following issues: %1$s</string>
+
+    <!-- Dashboard Activity Strings -->
+    <string name="error_opening_profile_editor">Error opening profile editor</string>
+    <string name="unable_to_open_contact_screen">Unable to open Contact screen</string>
+    <string name="unable_to_open_about_screen">Unable to open About screen</string>
+    <string name="edit_profile_coming_soon">Edit Profile feature coming soon!</string>
+
+    <!-- Delete Profile Dialog -->
+    <!--string name="delete_profile_message">Are you sure you want to permanently delete your profile? This action cannot be undone.\n\nType DELETE to confirm:</string-->
+    <string name="delete_warning_message">⚠️ This action is permanent and cannot be undone!</string>
+
+    <!-- Delete Notebook Dialog -->
+    <string name="delete_notebook_title">Delete Notebook</string>
+    <string name="delete_notebook_message">Are you sure you want to delete notebook \'%1$s\'?</string>
+    <string name="notebook_deleted_successfully">Notebook deleted successfully</string>
+    <string name="failed_to_delete_notebook">Failed to delete notebook</string>
+    <string name="server_error_format">Server error: %1$d %2$s</string>
+    <string name="error_deleting_notebook">Failed to delete notebook: %1$s</string>
+
+    <!-- Dashboard Data Messages -->
+    <string name="no_registered_urls">No registered URLs</string>
+    <string name="error_parsing_data">Error parsing data: %1$s</string>
+    <string name="no_notebooks_found">No notebooks found</string>
+    <string name="loaded_notebooks_format">Loaded %1$d notebooks from %2$d teams</string>
+    <string name="data_refreshed">Data refreshed</string>
+    <string name="failed_to_refresh_data">Failed to refresh data</string>
+    <string name="error_refreshing_data">Error refreshing data: %1$s</string>
+    <string name="profile_button_text">Profile</string>
+    <string name="contact_support_description">Contact Support</string>
+    <string name="about_app_description">About App</string>
+    <string name="my_notebooks_title">My Notebooks</string>
+    <string name="register_notebook_button">Register Notebook</string>
+    <string name="sign_out_button">Sign Out</string>
+    <string name="refresh_data_description">Refresh data</string>
+
+    <!-- Table Row Fields -->
+    <string name="short_url">Short URL</string>
+    <string name="team">Team</string>
+    <string name="views">Views</string>
+    <string name="end_date">End Date</string>
+    <string name="delete_action">Delete</string>
+    <string name="no_data">No Data</string>
+    <string name="copy_url_description">Copy URL</string>
+
+    <!-- Clipboard Messages -->
+    <string name="vex_notebook_url_label">VEX Notebook URL</string>
+    <string name="url_prefix">https://vexteams.org/nb/</string>
+    <string name="copied_url_format">📋 Copied: %1$s</string>
+
+    <!-- View Messages -->
+    <string name="no_views_available">No views available for this notebook</string>
+    <string name="view_log_title_format">View Log: %1$s</string>
+    <string name="delete_emoji">🗑️ Delete</string>
+
+    <!-- Logout Messages -->
+    <string name="logged_out_successfully">Logged out successfully</string>
+    <string name="logged_out_server_error">Logged out (server error)</string>
+    <string name="logout_error">Logout error</string>
+
+    <!-- ViewModel Strings -->
+    <string name="default_email">studentId@yourSchoolName.com</string>
+    <string name="default_team_number">12345A</string>
+
+    <!-- Table Row Types -->
+    <string name="yes">Yes</string>
+
+    <!-- Separator -->
+    <string name="separator_line">─────────────</string>
+
+    <!-- UrlViewLogActivity -->
+    <string name="url_view_log_default_title">URL View Log</string>
+    <string name="error_invalid_url_id">Invalid URL ID</string>
+    <string name="error_failed_to_load_view_log">Failed to load view log: %d</string>
+    <string name="error_loading_view_log">Error loading view log: %s</string>
+    <string name="error_failed_to_load_log_detail">Failed to load log detail: %d</string>
+    <string name="error_loading_log_detail">Error loading log detail: %s</string>
+    <string name="view_entries_count">%d view entries</string>
+    <string name="loading_view_entries">Loading view entries...</string>
+    <string name="column_header_number">#</string>
+    <string name="column_header_device">Device</string>
+    <string name="no_view_entries_found">No view entries found</string>
+    <string name="touch_record_for_details_hint">Tap the record to view details</string>
+
+    <!-- UrlViewLogDetailDialog -->
+    <string name="view_log_detail_title">View Log Detail</string>
+    <string name="direct_access">Direct access</string>
+    <string name="timezone_format">GMT%s%d:%02d</string>
+    <string name="date_with_timezone">%s (%s)</string>
+    <string name="close">Close</string>
+    <string name="view_log_dialog_title">View Log</string>
+    <string name="column_header_host">Host</string>
+    <string name="entry_details_subtitle">Entry Details</string>
+    <string name="detail_label_date">📅 Date:</string>
+    <string name="detail_label_ip_address">🌐 IP Address:</string>
+    <string name="detail_label_host_name">🏠 Host Name:</string>
+    <string name="detail_label_device_type">📱 Device Type:</string>
+    <string name="detail_label_operating_system">💻 Operating System:</string>
+    <string name="detail_label_browser">🌍 Browser:</string>
+    <string name="detail_label_browser_version">🔢 Browser Version:</string>
+    <string name="detail_label_referrer">🔗 Referrer:</string>
+
+    <!-- Field Labels -->
+    <string name="label_date">Date</string>
+    <string name="label_ip_address">IP Address</string>
+    <string name="label_host_name">Host Name</string>
+
+    <!-- User info display -->
+    <string name="user_info_display">👤 User: %1$s\n🏆 Team: %2$s (Mock Data)\n📅 Login: %3$s\n⚡ MVVM + Hilt: Enabled</string>
+
+    <!-- Toast messages -->
+    <string name="profile_coming_soon">👤 Profile screen coming soon!</string>
+    <string name="features_coming_soon">🚀 Features overview coming soon!</string>
+
+    <!-- ViewModel messages -->
+    <string name="error_loading_user_info1">Error loading user info: %1$s</string>
+    <string name="error_logout1">Logout error: %1$s</string>
+    <string name="welcome_card_clicked">Welcome card clicked! Future: Dashboard overview</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+File location: app/src/main/res/layout/dropdown_menu_popup_item.xml
+This layout is used for the role dropdown menu items
+-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="48dp"
+    android:gravity="center_vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="12dp"
+    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+    android:textColor="@color/text_primary"
+    android:background="?attr/selectableItemBackground"
+    android:ellipsize="end"
+    android:maxLines="1" />
+
+    <!--
+    Alternative: If you prefer using your existing layout resources,
+    you can also use the system default:
+    android.R.layout.simple_dropdown_item_1line
+
+    Just change this line in SignUpActivity.kt:
+    val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, roleOptions)
+    -->

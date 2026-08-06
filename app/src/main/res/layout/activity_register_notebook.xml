@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    tools:context=".ui.register.RegisterNotebookActivity">
+
+    <!-- App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/vex_orange"
+            app:title="@string/register_notebook"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
+
+            <!-- Registration Form Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_large">
+
+                    <!-- Short URL -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilShortUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:hint="@string/short_url_hint"
+                        app:helperText="@string/short_url_helper_text"
+                        app:helperTextTextColor="@color/text_secondary"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="16"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/ic_check"
+                        app:endIconTint="@color/green"
+                        app:endIconContentDescription="@string/short_url_available">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etShortUrl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textNoSuggestions"
+                            android:maxLength="16"
+                            android:singleLine="true"
+                            android:fontFamily="monospace" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Notebook URL -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilNotebookUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:hint="@string/notebook_url_hint"
+                        app:helperText="@string/url_must_start_https"
+                        app:helperTextTextColor="@color/text_secondary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNotebookUrl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textUri"
+                            android:singleLine="true" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Start Date -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilStartDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:hint="@string/start_date_time_hint"
+                        app:helperText="@string/date_format_helper"
+                        app:helperTextTextColor="@color/text_secondary"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/ic_calendar"
+                        app:endIconContentDescription="@string/pick_date_description">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etStartDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:clickable="true"
+                            android:inputType="none" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- End Date -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilEndDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:hint="@string/end_date_time_hint"
+                        app:helperText="@string/date_format_helper"
+                        app:helperTextTextColor="@color/text_secondary"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/ic_calendar"
+                        app:endIconContentDescription="@string/pick_date_description">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEndDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:clickable="true"
+                            android:inputType="none" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Redirection Type with Help Icon -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilRedirectionType"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/redirection_type_hint">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/actvRedirectionType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:focusable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Redirection Type Help Icon -->
+                        <ImageView
+                            android:id="@+id/ivRedirectionTypeHelp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_help_outline"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="2dp"
+                            android:contentDescription="@string/help_redirection_type"
+                            app:tint="@color/vex_blue" />
+
+                    </LinearLayout>
+
+                    <!-- Team -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilTeam"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:hint="@string/team_hint">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/actvTeam"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:focusable="false" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Mobile Viewing Checkbox -->
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbPreventMobileViewing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_large"
+                        android:text="@string/prevent_mobile_viewing"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        app:buttonTint="@color/vex_orange" />
+
+                    <!-- Action Buttons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCancel"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/button_height"
+                            android:layout_marginEnd="@dimen/margin_medium"
+                            android:text="@string/cancel_button_text"
+                            android:textColor="@color/text_secondary"
+                            app:strokeColor="@color/text_secondary" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnRegister"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/button_height"
+                            android:text="@string/register_button_text"
+                            android:textColor="@color/white"
+                            app:backgroundTint="@color/vex_orange" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Progress Bar -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/vex_orange"
+        tools:visibility="visible" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

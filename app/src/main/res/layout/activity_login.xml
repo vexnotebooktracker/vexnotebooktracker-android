@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/padding_large"
+    tools:context=".ui.login.LoginActivity">
+
+    <!-- App Icon (Centered) -->
+    <ImageView
+        android:id="@+id/ivAppIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="@dimen/margin_large"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- App Title (Below Icon) -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/login_app_title"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+        android:textColor="@color/vex_orange"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivAppIcon" />
+
+    <!-- Email Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        android:hint="@string/email_hint"
+        app:boxStrokeColor="@color/vex_orange"
+        app:hintTextColor="@color/vex_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAppTitle"
+        app:startIconDrawable="@drawable/ic_email"
+        app:startIconTint="@color/vex_blue">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_normal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:hint="@string/password_hint"
+        app:boxStrokeColor="@color/vex_orange"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/vex_blue"
+        app:hintTextColor="@color/vex_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilEmail"
+        app:startIconDrawable="@drawable/ic_lock"
+        app:startIconTint="@color/vex_blue">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_normal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Sign In Button (formerly Login) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/margin_large"
+        android:backgroundTint="@color/vex_orange"
+        android:text="@string/sign_in"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_button"
+        app:cornerRadius="@dimen/button_corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+    <!-- Bottom Navigation Container (4 buttons in 2x2 grid) -->
+    <LinearLayout
+        android:id="@+id/llBottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin">
+
+        <!-- First Row: Sign Up and Forgot Password -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Sign Up Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignUp"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/vex_blue"
+                android:text="@string/signup_button"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:cornerRadius="@dimen/button_corner_radius" />
+
+            <!-- Forgot Password Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnForgotPassword"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/vex_blue"
+                android:text="@string/forgot_password"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:cornerRadius="@dimen/button_corner_radius" />
+
+        </LinearLayout>
+
+        <!-- Second Row: Contact Us and About -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:orientation="horizontal">
+
+            <!-- Contact Us Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContactUs"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/vex_blue"
+                android:text="@string/contact_title"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:cornerRadius="@dimen/button_corner_radius" />
+
+            <!-- About Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAbout"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/vex_blue"
+                android:text="@string/about_title"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:cornerRadius="@dimen/button_corner_radius" />
+
+        </LinearLayout>
+
+        <!-- Third Row: Simply Four Steps (Full Width) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSimplyFourSteps"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:backgroundTint="@color/vex_blue"
+            android:text="@string/simply_four_steps_title"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:cornerRadius="@dimen/button_corner_radius" />
+
+    </LinearLayout>
+
+    <!-- Progress Indicator -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/vex_orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

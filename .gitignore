@@ -1,0 +1,41 @@
+/captures
+.externalNativeBuild
+.cxx
+
+# Secrets files
+keystore.properties
+*.jks
+*.keystore
+
+# Compiled / build artifacts
+build/
+app/build/
+app/release/
+*.aab
+*.apk
+*.aar
+*.ap_
+*.dex
+
+# Gradle generated files
+.gradle/
+local.properties
+
+# Android studio / intellij idea
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+
+# Kotlin toolchain caches
+.kotlin/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Misc
+*.iml

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme using Material 3 -->
+    <style name="AppTheme" parent="Theme.Material3.Light">
+        <!-- VEX Brand Colors -->
+        <item name="colorPrimary">@color/vex_orange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/vex_light_orange</item>
+        <item name="colorOnPrimaryContainer">@color/vex_blue</item>
+
+        <item name="colorSecondary">@color/vex_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/vex_light_blue</item>
+        <item name="colorOnSecondaryContainer">@color/vex_blue</item>
+
+        <item name="colorTertiary">@color/vex_gray</item>
+        <item name="colorOnTertiary">@color/white</item>
+
+        <!-- Surface colors -->
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/background_light</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+
+        <!-- Background -->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/vex_orange</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Action bar -->
+        <item name="colorSurfaceContainer">@color/vex_orange</item>
+    </style>
+
+    <!-- Theme without action bar -->
+    <style name="AppTheme.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/vex_orange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/vex_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/vex_orange</item>
+    </style>
+</resources>

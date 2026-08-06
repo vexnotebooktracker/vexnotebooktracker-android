@@ -1,0 +1,5 @@
+<full-backup-content>
+    <!-- Exclude sensitive data from backup -->
+    <exclude domain="sharedpref" path="vex_secure_prefs" />
+    <exclude domain="sharedpref" path="vex_prefs" />
+</full-backup-content>

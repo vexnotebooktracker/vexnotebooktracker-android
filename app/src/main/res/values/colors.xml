@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- VEX Brand Colors -->
+    <color name="vex_orange">#FF6600</color>
+    <color name="vex_blue">#003366</color>
+    <color name="vex_gray">#666666</color>
+
+    <!-- VEX Light Variants -->
+    <color name="vex_light_orange">#FFE5CC</color>
+    <color name="vex_light_blue">#CCE5FF</color>
+    <color name="vex_light_gray">#F5F5F5</color>
+
+    <!-- ✅ NEW: Header Background Color -->
+    <color name="header_background">#F0F8FF</color> <!-- Very light blue for header -->
+
+    <!-- Material Design Standard Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="dark_gray">#666666</color>
+
+    <!-- Status Colors -->
+    <color name="green">#006600</color>
+    <color name="success_green">#006600</color>
+    <color name="red">#CC0000</color>
+    <color name="blue">#0066CC</color>
+    <color name="orange">#FF6600</color>
+
+    <!-- Material Surface Colors -->
+    <color name="background_light">#FAFAFA</color>
+    <color name="background_dark">#303030</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_dark">#121212</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_disabled">#9E9E9E</color>
+
+    <!-- Error Colors -->
+    <color name="error_red">#B00020</color>
+    <color name="error_light">#F8BBD9</color>
+</resources>

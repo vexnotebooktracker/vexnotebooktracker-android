@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.editprofile.EditProfileActivity">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/vex_orange"
+        app:title="@string/edit_profile_title"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_large">
+
+            <!-- Title -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvEditProfileTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:gravity="center"
+                android:text="@string/edit_profile_header"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                android:textColor="@color/vex_blue" />
+
+            <!-- Email Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmail"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:hint="@string/email_hint"
+                app:boxStrokeColor="@color/vex_orange"
+                app:counterEnabled="true"
+                app:counterMaxLength="249"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_check_circle"
+                app:endIconTint="@color/green"
+                app:hintTextColor="@color/vex_blue"
+                app:startIconDrawable="@drawable/ic_email"
+                app:startIconTint="@color/vex_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="249"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_normal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Confirm Email Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilConfirmEmail"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:hint="@string/confirm_email_hint"
+                app:boxStrokeColor="@color/vex_orange"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_check_circle"
+                app:endIconTint="@color/green"
+                app:hintTextColor="@color/vex_blue"
+                app:startIconDrawable="@drawable/ic_email"
+                app:startIconTint="@color/vex_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_normal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- First Name and Last Name Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:orientation="horizontal">
+
+                <!-- First Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFirstName"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:hint="@string/first_name_hint"
+                    app:boxStrokeColor="@color/vex_orange"
+                    app:hintTextColor="@color/vex_blue"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:startIconTint="@color/vex_blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_normal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Last Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilLastName"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:hint="@string/last_name_hint"
+                    app:boxStrokeColor="@color/vex_orange"
+                    app:hintTextColor="@color/vex_blue"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:startIconTint="@color/vex_blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_normal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!-- Role Dropdown with Help Icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilRole"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/role_hint"
+                    app:boxStrokeColor="@color/vex_orange"
+                    app:hintTextColor="@color/vex_blue"
+                    app:startIconDrawable="@drawable/ic_group"
+                    app:startIconTint="@color/vex_blue">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/etRole"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_normal"
+                        tools:ignore="LabelFor" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Role Help Icon -->
+                <ImageView
+                    android:id="@+id/ivRoleHelp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_help_outline"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="2dp"
+                    android:contentDescription="@string/help_role"
+                    app:tint="@color/vex_blue" />
+
+            </LinearLayout>
+
+            <!-- Team Number with Help Icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilTeamNumber"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/team_number_hint"
+                    app:boxStrokeColor="@color/vex_orange"
+                    app:hintTextColor="@color/vex_blue"
+                    app:helperText="@string/team_number_format"
+                    app:startIconDrawable="@drawable/ic_flag"
+                    app:startIconTint="@color/vex_blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTeamNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_normal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Team Number Help Icon -->
+                <ImageView
+                    android:id="@+id/ivTeamNumberHelp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_help_outline"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="2dp"
+                    android:contentDescription="@string/help_team_number"
+                    app:tint="@color/vex_blue" />
+
+            </LinearLayout>
+
+            <!-- Phone Number (Optional) with Help Icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/phone_hint"
+                    app:boxStrokeColor="@color/vex_orange"
+                    app:hintTextColor="@color/vex_blue"
+                    app:helperText="@string/phone_format"
+                    app:startIconDrawable="@drawable/ic_phone"
+                    app:startIconTint="@color/vex_blue">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_normal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Phone Help Icon -->
+                <ImageView
+                    android:id="@+id/ivPhoneHelp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_help_outline"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="2dp"
+                    android:contentDescription="@string/help_phone"
+                    app:tint="@color/vex_blue" />
+
+            </LinearLayout>
+
+            <!-- Password Change Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPasswordSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_large"
+                app:cardBackgroundColor="@color/vex_light_blue"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_medium">
+
+                    <!-- Password Section Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/margin_medium">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/change_password_section"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:textColor="@color/vex_blue" />
+
+                        <!-- Password Help Icon -->
+                        <ImageView
+                            android:id="@+id/ivPasswordHelp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_help_outline"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="2dp"
+                            android:contentDescription="@string/help_password_change"
+                            app:tint="@color/vex_blue" />
+
+                    </LinearLayout>
+
+                    <!-- Current Password Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCurrentPassword"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:hint="@string/current_password_hint"
+                        app:boxStrokeColor="@color/vex_orange"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="@color/vex_blue"
+                        app:hintTextColor="@color/vex_blue"
+                        app:startIconDrawable="@drawable/ic_lock"
+                        app:startIconTint="@color/vex_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCurrentPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_normal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- New Password Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilNewPassword"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:hint="@string/new_password_hint"
+                        app:boxStrokeColor="@color/vex_orange"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="32"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="@color/vex_blue"
+                        app:hintTextColor="@color/vex_blue"
+                        app:startIconDrawable="@drawable/ic_lock"
+                        app:startIconTint="@color/vex_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNewPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:maxLength="32"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_normal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Confirm New Password Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilConfirmNewPassword"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/confirm_new_password_hint"
+                        app:boxStrokeColor="@color/vex_orange"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/ic_check_circle"
+                        app:endIconTint="@color/green"
+                        app:hintTextColor="@color/vex_blue"
+                        app:startIconDrawable="@drawable/ic_lock"
+                        app:startIconTint="@color/vex_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etConfirmNewPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_normal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Password Requirements Info (Initially Hidden) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPasswordRequirements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/vex_light_blue"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_small"
+                        android:text="@string/password_requirements_title"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+                        android:textColor="@color/vex_blue" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvPasswordRequirements"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password_requirements"
+                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Update Profile Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUpdateProfile"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:backgroundTint="@color/vex_orange"
+                android:text="@string/update_profile_button"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_button"
+                app:cornerRadius="@dimen/button_corner_radius"
+                app:icon="@drawable/ic_save"
+                app:iconTint="@color/white" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Progress Indicator -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/vex_orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

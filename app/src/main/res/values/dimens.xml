@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text Sizes -->
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_button">18sp</dimen>
+    <dimen name="text_size_large">22sp</dimen>
+    <dimen name="text_size_title">24sp</dimen>
+    <dimen name="text_size_headline">28sp</dimen>
+
+    <!-- Padding -->
+    <dimen name="padding_tiny">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="padding_extra_large">32dp</dimen>
+
+    <!-- Margins -->
+    <dimen name="margin_tiny">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_extra_large">32dp</dimen>
+    <dimen name="margin_huge">48dp</dimen>
+
+    <!-- Spacing -->
+    <dimen name="spacing_tiny">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_extra_large">32dp</dimen>
+
+    <!-- Button Dimensions -->
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="button_height_small">40dp</dimen>
+    <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="button_stroke_width">2dp</dimen>
+
+    <!-- Card Dimensions -->
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+
+    <!-- Input Field Dimensions -->
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="input_corner_radius">4dp</dimen>
+
+    <!-- Layout Dimensions -->
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="progress_size">48dp</dimen>
+
+    <!-- Icon Sizes -->
+    <dimen name="icon_size_small">16dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
+    <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="icon_size_extra_large">48dp</dimen>
+
+    <!-- Spacer height for dashboard table items -->
+    <dimen name="spacer_height">8dp</dimen>
+
+    <!-- Other dimensions can be added here -->
+    <dimen name="table_row_min_height">48dp</dimen>
+    <dimen name="table_row_padding">12dp</dimen>
+    <dimen name="view_log_item_padding">8dp</dimen>
+    <dimen name="view_log_item_min_height">40dp</dimen>
+</resources>

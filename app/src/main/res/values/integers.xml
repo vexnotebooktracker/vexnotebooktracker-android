@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Feedback Validation -->
+    <integer name="feedback_min_length">10</integer>
+    <integer name="feedback_max_length">1000</integer>
+
+    <!-- Short URL Validation -->
+    <integer name="short_url_min_length">3</integer>
+    <integer name="short_url_max_length">16</integer>
+
+    <!-- Password Requirements -->
+    <integer name="password_min_length">8</integer>
+    <integer name="password_max_length">32</integer>
+
+    <!-- Name Requirements -->
+    <integer name="name_min_length">2</integer>
+    <integer name="name_max_length">50</integer>
+
+    <!-- Email Requirements -->
+    <integer name="email_max_length">249</integer>
+
+    <!-- SignUp Constants -->
+    <integer name="email_check_delay_ms">500</integer>
+</resources>
