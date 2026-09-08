@@ -25,6 +25,10 @@ import org.vexteams.vexnotebooktracker.network.*
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
+import android.graphics.Color
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
+import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
 
 @AndroidEntryPoint
 class RegisterNotebookActivity : AppCompatActivity() {
@@ -58,7 +62,13 @@ class RegisterNotebookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         try {
             binding = ActivityRegisterNotebookBinding.inflate(layoutInflater)
+            // Android 16 (API 36) enforces edge-to-edge; a dark system bar style keeps the
+            // white status bar icons this app has always used over its orange app bar.
+            enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
             setContentView(binding.root)
+
+            WindowInsetsUtils.applyTopBarInsets(binding.appBarLayout)
+            WindowInsetsUtils.applyContentInsets(binding.contentContainer, handleIme = true)
 
             setupToolbar()
             setupHelpIcons()
@@ -196,9 +206,10 @@ class RegisterNotebookActivity : AppCompatActivity() {
 
         // Clear error if validation passes
         binding.tilShortUrl.error = null
+        binding.tilShortUrl.setEndIconDrawable(R.drawable.ic_check)
 
-        // Check availability with server
-        checkShortUrlAvailability(shortUrl)
+        // Server-side availability check disabled - no longer needed after the database changes
+        // checkShortUrlAvailability(shortUrl)
     }
 
     private fun clearShortUrlValidation() {
@@ -206,6 +217,9 @@ class RegisterNotebookActivity : AppCompatActivity() {
         binding.tilShortUrl.setEndIconDrawable(R.drawable.ic_help)
     }
 
+    // Short URL availability lookup is no longer needed after the database changes.
+    // Kept commented out in case the check has to be restored later.
+    /*
     private fun checkShortUrlAvailability(shortUrl: String) {
         lifecycleScope.launch {
             try {
@@ -226,6 +240,7 @@ class RegisterNotebookActivity : AppCompatActivity() {
             }
         }
     }
+    */
 
     private fun validateNotebookUrl(url: String) {
         if (url.isEmpty()) {

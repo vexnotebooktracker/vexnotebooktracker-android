@@ -12,6 +12,11 @@ import org.vexteams.vexnotebooktracker.databinding.ActivityAboutBinding
 import org.vexteams.vexnotebooktracker.utils.DebugLogger
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import android.graphics.Color
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
+import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
+import androidx.activity.OnBackPressedCallback
 
 @AndroidEntryPoint
 class AboutActivity : AppCompatActivity() {
@@ -30,15 +35,22 @@ class AboutActivity : AppCompatActivity() {
 
         try {
             binding = ActivityAboutBinding.inflate(layoutInflater)
+            // Android 16 (API 36) enforces edge-to-edge; a dark system bar style keeps the^M
+            // white status bar icons this app has always used over its orange app bar.^M
+            enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
             setContentView(binding.root)
+
+            WindowInsetsUtils.applyTopBarInsets(binding.appBarLayout)
+            WindowInsetsUtils.applyContentInsets(binding.contentContainer)
+            setupBackPressHandler()
 
             setupToolbar()
             loadAboutContent()
 
-            DebugLogger.d("AboutActivity", "📄 About screen initialized")
+            DebugLogger.d("AboutActivity", " About screen initialized")
 
         } catch (e: Exception) {
-            Log.e("AboutActivity", "💥 Error in onCreate", e)
+            Log.e("AboutActivity", " Error in onCreate", e)
             Toast.makeText(
                 this,
                 getString(R.string.error_loading_about, e.message ?: "Unknown error"),
@@ -50,31 +62,31 @@ class AboutActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         binding.toolbar.setNavigationOnClickListener {
-            DebugLogger.d("AboutActivity", "⬅️ Back button clicked")
+            DebugLogger.d("AboutActivity", " Back button clicked")
             finish()
         }
     }
 
     private fun loadAboutContent() {
         try {
-            // ✅ Read about.txt from assets folder
+            // Read about.txt from assets folder
             val fileName = getString(R.string.about_content_file)
             val content = readTextFromAssets(fileName)
 
             if (content.isNotEmpty()) {
                 binding.tvAboutContent.text = content
-                DebugLogger.d("AboutActivity", "✅ Loaded ${content.length} characters from $fileName")
+                DebugLogger.d("AboutActivity", " Loaded ${content.length} characters from $fileName")
             } else {
                 showErrorContent(getString(R.string.about_content_empty))
             }
 
         } catch (e: Exception) {
-            Log.e("AboutActivity", "❌ Error loading about.txt: ${e.message}", e)
+            Log.e("AboutActivity", " Error loading about.txt: ${e.message}", e)
             showErrorContent(getString(R.string.about_unable_to_load, e.message ?: "Unknown error"))
         }
     }
 
-    // ✅ Read text file from assets folder
+    // Read text file from assets folder
     private fun readTextFromAssets(fileName: String): String {
         return try {
             val inputStream = assets.open(fileName)
@@ -97,19 +109,23 @@ class AboutActivity : AppCompatActivity() {
         }
     }
 
-    // ✅ Show error message in TextView
+    // Show error message in TextView
     private fun showErrorContent(message: String) {
-        binding.tvAboutContent.text = getString(
-            R.string.about_error_title
-        ) + "\n\n" + message + "\n\n" + getString(
-            R.string.about_error_instructions
-        )
+        binding.tvAboutContent.text = getString(R.string.about_error_title) + "\n\n" + message + "\n\n" + getString(R.string.about_error_instructions)
 
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
-    override fun onBackPressed() {
-        DebugLogger.d("AboutActivity", "⬅️ System back button pressed")
-        super.onBackPressed()
+    /**
+     * Predictive back is enabled by default for apps targeting SDK 36, and the system then
+     * dispatches through OnBackPressedDispatcher instead of calling onBackPressed().
+     */
+    private fun setupBackPressHandler() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                DebugLogger.d("AboutActivity", "⬅ System back button pressed")
+                finish()
+            }
+        })
     }
 }

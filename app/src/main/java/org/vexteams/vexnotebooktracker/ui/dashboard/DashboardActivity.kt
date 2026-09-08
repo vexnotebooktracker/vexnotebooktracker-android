@@ -35,6 +35,10 @@ import org.vexteams.vexnotebooktracker.ui.contact.ContactActivity
 // import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
+import android.graphics.Color
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
+import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
 
 // Type alias to resolve import conflict
 private typealias TableRowData = org.vexteams.vexnotebooktracker.models.TableRowData
@@ -63,7 +67,13 @@ class DashboardActivity : AppCompatActivity() {
 
         try {
             binding = ActivityDashboardBinding.inflate(layoutInflater)
+            // Android 16 (API 36) enforces edge-to-edge; a dark system bar style keeps the
+            // white status bar icons this app has always used over its orange app bar.
+            enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
             setContentView(binding.root)
+
+            WindowInsetsUtils.applyTopBarInsets(binding.appBarLayout)
+            WindowInsetsUtils.applyContentInsets(binding.contentContainer)
 
             setupRecyclerView()
             setupClickListeners()

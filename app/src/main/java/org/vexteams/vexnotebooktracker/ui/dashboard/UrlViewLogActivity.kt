@@ -19,6 +19,10 @@ import org.vexteams.vexnotebooktracker.utils.TimeUtils  // ✅ NEW IMPORT
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
+import android.graphics.Color
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
+import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
 
 @AndroidEntryPoint
 class UrlViewLogActivity : AppCompatActivity() {
@@ -35,7 +39,13 @@ class UrlViewLogActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityUrlViewLogBinding.inflate(layoutInflater)
+        // Android 16 (API 36) enforces edge-to-edge; a dark system bar style keeps the
+        // white status bar icons this app has always used over its orange app bar.
+        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
         setContentView(binding.root)
+
+        WindowInsetsUtils.applyTopBarInsets(binding.appBarLayout)
+        WindowInsetsUtils.applyContentInsets(binding.contentContainer)
 
         // Get data from intent
         urlId = intent.getIntExtra(EXTRA_URL_ID, -1)
@@ -64,7 +74,7 @@ class UrlViewLogActivity : AppCompatActivity() {
         }
 
         binding.toolbar.setNavigationOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 
@@ -223,7 +233,7 @@ class UrlViewLogActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        onBackPressedDispatcher.onBackPressed()
         return true
     }
 

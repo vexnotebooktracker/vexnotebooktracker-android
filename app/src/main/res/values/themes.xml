@@ -27,8 +27,15 @@
         <item name="colorOnBackground">@color/text_primary</item>
 
         <!-- Status bar -->
-        <item name="android:statusBarColor">@color/vex_orange</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <!--
+            android:statusBarColor and android:navigationBarColor are ignored on Android 16
+            (API 36) because edge-to-edge is enforced for apps targeting SDK 36. The status bar
+            area is now painted by each screen's own app bar (or by the login screen's
+            statusBarScrim), and the bar icon colour is set with enableEdgeToEdge() in each
+            activity. Kept commented out for reference.
+        -->
+        <!-- <item name="android:statusBarColor">@color/vex_orange</item> -->
+        <!-- <item name="android:windowLightStatusBar">false</item> -->
 
         <!-- Action bar -->
         <item name="colorSurfaceContainer">@color/vex_orange</item>
@@ -42,6 +49,7 @@
         <item name="colorOnSecondary">@color/white</item>
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurface">@color/text_primary</item>
-        <item name="android:statusBarColor">@color/vex_orange</item>
+        <!-- Ignored on Android 16 (API 36) - see the note in AppTheme above. -->
+        <!-- <item name="android:statusBarColor">@color/vex_orange</item> -->
     </style>
 </resources>

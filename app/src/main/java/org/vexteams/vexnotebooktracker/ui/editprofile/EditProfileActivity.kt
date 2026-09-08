@@ -16,6 +16,11 @@ import kotlinx.coroutines.launch
 import org.vexteams.vexnotebooktracker.R
 import org.vexteams.vexnotebooktracker.databinding.ActivityEditProfileBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import android.graphics.Color
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
+import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
+import androidx.activity.OnBackPressedCallback
 
 @AndroidEntryPoint
 class EditProfileActivity : AppCompatActivity() {
@@ -28,7 +33,14 @@ class EditProfileActivity : AppCompatActivity() {
 
         try {
             binding = ActivityEditProfileBinding.inflate(layoutInflater)
+            // Android 16 (API 36) enforces edge-to-edge; a dark system bar style keeps the
+            // white status bar icons this app has always used over its orange app bar.
+            enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
             setContentView(binding.root)
+
+            WindowInsetsUtils.applyTopBarInsets(binding.toolbar)
+            WindowInsetsUtils.applyContentInsets(binding.contentContainer, handleIme = true)
+            setupBackPressHandler()
 
             setupToolbar()
             setupRoleDropdown()
@@ -443,8 +455,16 @@ class EditProfileActivity : AppCompatActivity() {
         Log.e("EditProfileActivity", message)
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        Log.d("EditProfileActivity", "🔙 Back pressed - returning to previous screen")
+    /**
+     * Predictive back is enabled by default for apps targeting SDK 36, and the system then
+     * dispatches through OnBackPressedDispatcher instead of calling onBackPressed().
+     */
+    private fun setupBackPressHandler() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.d("EditProfileActivity", "🔙 Back pressed - returning to previous screen")
+                finish()
+            }
+        })
     }
 }

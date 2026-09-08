@@ -21,6 +21,10 @@ import org.vexteams.vexnotebooktracker.ui.simplyfoursteps.SimplyFourStepsActivit
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.vexteams.vexnotebooktracker.network.DashboardUrlRecord
+import android.graphics.Color
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
+import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
 // import org.vexteams.vexnotebooktracker.BuildConfig  // ✅ ADD THIS LINE
 
 @AndroidEntryPoint
@@ -37,7 +41,17 @@ class LoginActivity : AppCompatActivity() {
         // Log.e("BuildConfig_TEST", "API_BASE_URL = ${BuildConfig.API_BASE_URL}")
         try {
             binding = ActivityLoginBinding.inflate(layoutInflater)
+            // Android 16 (API 36) enforces edge-to-edge; a dark system bar style keeps the
+            // white status bar icons this app has always used over its orange app bar.
+            enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
             setContentView(binding.root)
+
+            WindowInsetsUtils.applyStatusBarScrim(binding.statusBarScrim)
+            WindowInsetsUtils.applyContentInsets(
+                binding.contentContainer,
+                handleIme = true,
+                includeTopInset = true
+            )
 
             setupClickListeners()
             observeViewModel()

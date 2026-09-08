@@ -12,6 +12,11 @@ import org.vexteams.vexnotebooktracker.databinding.ActivitySimplyFourStepsBindin
 import org.vexteams.vexnotebooktracker.utils.DebugLogger
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import android.graphics.Color
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
+import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
+import androidx.activity.OnBackPressedCallback
 
 @AndroidEntryPoint
 class SimplyFourStepsActivity : AppCompatActivity() {
@@ -30,7 +35,14 @@ class SimplyFourStepsActivity : AppCompatActivity() {
 
         try {
             binding = ActivitySimplyFourStepsBinding.inflate(layoutInflater)
+            // Android 16 (API 36) enforces edge-to-edge; a dark system bar style keeps the
+            // white status bar icons this app has always used over its orange app bar.
+            enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
             setContentView(binding.root)
+
+            WindowInsetsUtils.applyTopBarInsets(binding.appBarLayout)
+            WindowInsetsUtils.applyContentInsets(binding.contentContainer)
+            setupBackPressHandler()
 
             setupToolbar()
             loadSimplyFourStepsContent()
@@ -105,8 +117,16 @@ class SimplyFourStepsActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
-    override fun onBackPressed() {
-        DebugLogger.d("SimplyFourStepsActivity", "System back button pressed")
-        super.onBackPressed()
+    /**
+     * Predictive back is enabled by default for apps targeting SDK 36, and the system then
+     * dispatches through OnBackPressedDispatcher instead of calling onBackPressed().
+     */
+    private fun setupBackPressHandler() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                DebugLogger.d("SimplyFourStepsActivity", "System back button pressed")
+                finish()
+            }
+        })
     }
 }

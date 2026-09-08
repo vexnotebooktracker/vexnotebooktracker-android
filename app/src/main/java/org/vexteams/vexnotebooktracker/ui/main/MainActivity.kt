@@ -13,6 +13,10 @@ import kotlinx.coroutines.launch
 import org.vexteams.vexnotebooktracker.R
 import org.vexteams.vexnotebooktracker.databinding.ActivityMainBinding
 import org.vexteams.vexnotebooktracker.ui.login.LoginActivity
+import android.graphics.Color
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
+import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -25,7 +29,13 @@ class MainActivity : AppCompatActivity() {
 
         try {
             binding = ActivityMainBinding.inflate(layoutInflater)
+            // Android 16 (API 36) enforces edge-to-edge; a dark system bar style keeps the
+            // white status bar icons this app has always used over its orange app bar.
+            enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
             setContentView(binding.root)
+
+            WindowInsetsUtils.applyTopBarInsets(binding.appBarLayout)
+            WindowInsetsUtils.applyContentInsets(binding.contentContainer)
 
             setupMaterialUI()
             setupClickListeners()
