@@ -32,6 +32,9 @@ object TimeUtils {
 
     // Display format (user-friendly, in local time)
     private const val DISPLAY_DATE_FORMAT = "yyyy-MM-dd HH:mm"
+
+    // 12-hour display variant, for values where AM/PM removes ambiguity
+    private const val DISPLAY_DATE_FORMAT_12H = "yyyy-MM-dd hh:mm a"
     private const val DISPLAY_TIME_FORMAT = "HH:mm:ss"
 
     // ✅ OPTIMIZATION: Cache date formatters to avoid recreation
@@ -49,6 +52,12 @@ object TimeUtils {
 
     private val displayDateFormat by lazy {
         SimpleDateFormat(DISPLAY_DATE_FORMAT, Locale.getDefault()).apply {
+            timeZone = TimeZone.getDefault()
+        }
+    }
+
+    private val displayDateFormat12h by lazy {
+        SimpleDateFormat(DISPLAY_DATE_FORMAT_12H, Locale.getDefault()).apply {
             timeZone = TimeZone.getDefault()
         }
     }
@@ -107,6 +116,24 @@ object TimeUtils {
         } catch (e: Exception) {
             Log.e(TAG, "Error converting GMT time to local display: $gmtTimeString", e)
             gmtTimeString // Return original if conversion fails
+        }
+    }
+
+    /**
+     * Same conversion as [gmtToLocalDisplay] but rendered in 12-hour form with AM/PM
+     * (for example "2026-09-08 08:30 PM"), for values where 24-hour time reads ambiguously.
+     */
+    fun gmtToLocalDisplay12h(gmtTimeString: String): String {
+        return try {
+            val date = when {
+                gmtTimeString.contains("T") -> serverIsoFormat.parse(gmtTimeString)
+                else -> serverDateFormat.parse(gmtTimeString)
+            }
+
+            displayDateFormat12h.format(date ?: Date())
+        } catch (e: Exception) {
+            Log.e(TAG, "Error converting GMT time to 12-hour local display: $gmtTimeString", e)
+            gmtToLocalDisplay(gmtTimeString)
         }
     }
 

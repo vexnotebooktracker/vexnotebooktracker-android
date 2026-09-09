@@ -86,6 +86,31 @@ object WindowInsetsUtils {
     }
 
     /**
+     * Keeps a floating view - a FAB, say - clear of the navigation bar by growing its margins.
+     *
+     * These views sit directly on the window rather than inside the content container, so they do
+     * not benefit from [applyContentInsets]. The inset has to be applied as margin rather than
+     * padding: padding on a FAB shrinks the button's own drawable area instead of moving it.
+     */
+    fun applyFloatingInsets(view: View) {
+        val params = view.layoutParams as? ViewGroup.MarginLayoutParams ?: return
+        val initialBottom = params.bottomMargin
+        val initialLeft = params.leftMargin
+        val initialRight = params.rightMargin
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
+            val bars = systemBarInsets(insets)
+            v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                bottomMargin = initialBottom + bars.bottom
+                leftMargin = initialLeft + bars.left
+                rightMargin = initialRight + bars.right
+            }
+            insets
+        }
+        ViewCompat.requestApplyInsets(view)
+    }
+
+    /**
      * Sizes [scrim] to the height of the status bar so it can paint that area, for screens that
      * have no app bar to extend behind it.
      */

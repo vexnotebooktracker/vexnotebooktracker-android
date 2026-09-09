@@ -335,6 +335,8 @@
     <string name="delete_notebook_title">Delete Notebook</string>
     <string name="delete_notebook_message">Are you sure you want to delete notebook \'%1$s\'?</string>
     <string name="notebook_deleted_successfully">Notebook deleted successfully</string>
+    <string name="notebook_deleted_snackbar">Deleted \"%1$s\"</string>
+    <string name="undo">UNDO</string>
     <string name="failed_to_delete_notebook">Failed to delete notebook</string>
     <string name="server_error_format">Server error: %1$d %2$s</string>
     <string name="error_deleting_notebook">Failed to delete notebook: %1$s</string>

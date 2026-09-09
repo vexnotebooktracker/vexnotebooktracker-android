@@ -8,7 +8,9 @@ import org.vexteams.vexnotebooktracker.utils.DebugLogger
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 // import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,14 +42,12 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import org.vexteams.vexnotebooktracker.utils.WindowInsetsUtils
 
-// Type alias to resolve import conflict
-private typealias TableRowData = org.vexteams.vexnotebooktracker.models.TableRowData
 
 @AndroidEntryPoint
 class DashboardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDashboardBinding
-    private lateinit var tableAdapter: TableDataAdapter
+    private lateinit var recordAdapter: DashboardRecordAdapter
     private var dashboardData: List<DashboardUrlRecord> = emptyList()
     private var isReturningFromRegistration = false
 
@@ -74,6 +74,8 @@ class DashboardActivity : AppCompatActivity() {
 
             WindowInsetsUtils.applyTopBarInsets(binding.appBarLayout)
             WindowInsetsUtils.applyContentInsets(binding.contentContainer)
+            // The FAB floats on the window, so the nav bar inset has to reach it separately.
+            WindowInsetsUtils.applyFloatingInsets(binding.fab)
 
             setupRecyclerView()
             setupClickListeners()
@@ -88,16 +90,61 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        tableAdapter = TableDataAdapter { tableRowData ->
-            onTableRowClicked(tableRowData)
-        }
+        recordAdapter = DashboardRecordAdapter(
+            onViewsClick = { record -> startUrlViewLogActivity(record.urlId, record.shortUrl) },
+            formatEndDate = { endDate -> formatEndDate(endDate) }
+        )
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@DashboardActivity)
-            adapter = tableAdapter
+            adapter = recordAdapter
         }
 
+        ItemTouchHelper(
+            SwipeToDeleteCallback(this) { position -> onRecordSwiped(position) }
+        ).attachToRecyclerView(binding.recyclerView)
+
         DebugLogger.d("DashboardActivity", "RecyclerView setup completed")
+    }
+
+    /**
+     * Swiping removes the card straight away and offers an Undo. The API call is deferred until
+     * the snackbar goes away without Undo being tapped, so an accidental swipe costs nothing.
+     */
+    private fun onRecordSwiped(position: Int) {
+        val record = recordAdapter.currentList.getOrNull(position) ?: return
+
+        dashboardData = dashboardData.filter { it.urlId != record.urlId }
+        recordAdapter.submitList(dashboardData)
+
+        var undone = false
+
+        Snackbar.make(
+            binding.root,
+            getString(R.string.notebook_deleted_snackbar, record.shortUrl),
+            Snackbar.LENGTH_LONG
+        )
+            .setAction(getString(R.string.undo)) {
+                undone = true
+                restoreRecord(record, position)
+            }
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                    // DISMISS_EVENT_ACTION means Undo was tapped; anything else commits.
+                    if (!undone && event != DISMISS_EVENT_ACTION) {
+                        deleteNotebook(record.urlId)
+                    }
+                }
+            })
+            .show()
+    }
+
+    private fun restoreRecord(record: DashboardUrlRecord, position: Int) {
+        val restored = dashboardData.toMutableList()
+        restored.add(position.coerceIn(0, restored.size), record)
+        dashboardData = restored
+        recordAdapter.submitList(dashboardData)
+        DebugLogger.d("DashboardActivity", "Delete undone for URL ID ${record.urlId}")
     }
 
     private fun setupClickListeners() {
@@ -306,11 +353,8 @@ class DashboardActivity : AppCompatActivity() {
 
     private fun displayVexData(data: List<DashboardUrlRecord>) {
         if (data.isNotEmpty()) {
-            // Convert DashboardUrlRecord to TableRowData format
-            val tableData = convertToTableRowData(data)
-
-            // Update adapter with converted data using ListAdapter method
-            tableAdapter.submitList(tableData)
+            binding.recyclerView.visibility = android.view.View.VISIBLE
+            recordAdapter.submitList(data)
 
             // Simple message
             val teams = data.map { it.team.trim() }.distinct().sorted()
@@ -329,117 +373,13 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
 
-    private fun convertToTableRowData(records: List<DashboardUrlRecord>): List<TableRowData> {
-        val tableData = mutableListOf<TableRowData>()
-
-        records.forEach { record ->
-            // Add URL row
-            tableData.add(
-                TableRowData(
-                    field = getString(R.string.short_url),
-                    value = record.shortUrl,
-                    type = "url",
-                    urlId = record.urlId
-                )
-            )
-
-            // ADD: Small spacer between Short URL and Team
-            tableData.add(
-                TableRowData(
-                    field = "",
-                    value = "",
-                    type = "spacer"
-                )
-            )
-
-            // Add Team row
-            tableData.add(
-                TableRowData(
-                    field = getString(R.string.team),
-                    value = record.team.trim(),
-                    type = "team",
-                    urlId = record.urlId
-                )
-            )
-
-            // ADD: Small spacer between Team and Views
-            tableData.add(
-                TableRowData(
-                    field = "",
-                    value = "",
-                    type = "spacer"
-                )
-            )
-
-            // CHANGED: Views row - now clickable when > 0
-            tableData.add(
-                TableRowData(
-                    field = getString(R.string.views),
-                    value = record.noOfViews.toString(),
-                    type = "views",
-                    urlId = record.urlId
-                )
-            )
-
-            // ADD: Small spacer between Views and End Date
-            tableData.add(
-                TableRowData(
-                    field = "",
-                    value = "",
-                    type = "spacer"
-                )
-            )
-
-            // UPDATED: Format End Date using GMT->Local conversion
-            tableData.add(
-                TableRowData(
-                    field = getString(R.string.end_date),
-                    value = formatEndDate(record.endDate),
-                    type = "date",
-                    urlId = record.urlId
-                )
-            )
-
-            // ADD: Small spacer before Delete
-            tableData.add(
-                TableRowData(
-                    field = "",
-                    value = "",
-                    type = "spacer"
-                )
-            )
-
-            // CLEAN: Delete option for each record
-            tableData.add(
-                TableRowData(
-                    field = getString(R.string.delete_action),
-                    value = "", // EMPTY: No extra text, just the field name and icon
-                    type = "delete",
-                    urlId = record.urlId
-                )
-            )
-
-            // Add separator if not last record
-            if (record != records.last()) {
-                tableData.add(
-                    TableRowData(
-                        field = getString(R.string.separator_line),
-                        value = getString(R.string.separator_line),
-                        type = "separator"
-                    )
-                )
-            }
-        }
-
-        return tableData
-    }
-
     // UPDATED: Format End Date function with GMT->Local conversion
     private fun formatEndDate(dateString: String): String {
         return try {
             // NEW: Convert GMT time from server to local time for display
             // Server sends in GMT, we convert to local time with same display format
-            val localDisplayTime = TimeUtils.gmtToLocalDisplay(dateString)
+            // 12-hour with AM/PM: "2026-09-08 20:00" was being misread as a morning time.
+            val localDisplayTime = TimeUtils.gmtToLocalDisplay12h(dateString)
 
             DebugLogger.d("DashboardActivity", "Converted '$dateString' (GMT) -> '$localDisplayTime' (Local)")
             localDisplayTime
@@ -458,54 +398,10 @@ class DashboardActivity : AppCompatActivity() {
             Toast.makeText(this, "$reason", Toast.LENGTH_LONG).show()
         }
 
-        // Show empty state in table with user-friendly message
-        val emptyData = listOf(
-            TableRowData(
-                field = getString(R.string.no_data),
-                value = reason,
-                type = "default"
-            )
-        )
-        tableAdapter.submitList(emptyData)
-    }
-
-    private fun onTableRowClicked(tableRowData: TableRowData) {
-        when (tableRowData.type) {
-            // CHANGED: Views are now clickable instead of URL
-            "views" -> {
-                if (tableRowData.urlId != null) {
-                    val originalRecord = dashboardData.find { it.urlId == tableRowData.urlId }
-                    if (originalRecord != null && originalRecord.noOfViews > 0) {
-                        startUrlViewLogActivity(tableRowData.urlId, originalRecord.shortUrl)
-                    } else {
-                        Toast.makeText(this, getString(R.string.no_views_available), Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-            // NEW: Handle delete clicks
-            "delete" -> {
-                if (tableRowData.urlId != null) {
-                    showDeleteConfirmation(tableRowData.urlId)
-                }
-            }
-        }
-
-        DebugLogger.d("DashboardActivity", "Clicked: ${tableRowData.field} = ${tableRowData.value}")
-    }
-
-    // NEW: Show delete confirmation dialog
-    private fun showDeleteConfirmation(urlId: Int) {
-        val record = dashboardData.find { it.urlId == urlId }
-        if (record != null) {
-            AlertDialog.Builder(this)
-                .setTitle(getString(R.string.delete_notebook_title))
-                .setMessage(getString(R.string.delete_notebook_message, record.shortUrl))
-                .setPositiveButton(getString(R.string.delete)) { _, _ ->
-                    deleteNotebook(urlId)
-                }
-                .setNegativeButton(getString(R.string.cancel), null)
-                .show()
-        }
+        // Nothing to list - clear the cards and surface the reason.
+        recordAdapter.submitList(emptyList())
+        binding.recyclerView.visibility = android.view.View.GONE
+        Toast.makeText(this, reason, Toast.LENGTH_SHORT).show()
     }
 
     // COMPLETED: Delete notebook with actual API call
@@ -522,24 +418,19 @@ class DashboardActivity : AppCompatActivity() {
                     val deleteResponse = response.body()
 
                     if (deleteResponse?.success == true) {
-                        // Remove from local data
-                        dashboardData = dashboardData.filter { it.urlId != urlId }
-
-                        // Update UI
-                        displayVexData(dashboardData)
-
-                        val message = deleteResponse.message ?: getString(R.string.notebook_deleted_successfully)
-                        Toast.makeText(this@DashboardActivity, "$message", Toast.LENGTH_SHORT).show()
+                        // The card was already removed when the swipe completed.
                         DebugLogger.d("DashboardActivity", "Notebook deleted: URL ID $urlId")
                     } else {
                         val errorMessage = deleteResponse?.message ?: getString(R.string.failed_to_delete_notebook)
                         Toast.makeText(this@DashboardActivity, "$errorMessage", Toast.LENGTH_LONG).show()
                         Log.e("DashboardActivity", "Delete failed: $errorMessage")
+                        refreshDashboardData()   // server still has it - bring the card back
                     }
                 } else {
                     val errorMessage = getString(R.string.server_error_format, response.code(), response.message())
                     Toast.makeText(this@DashboardActivity, "$errorMessage", Toast.LENGTH_LONG).show()
                     Log.e("DashboardActivity", "Delete API error: $errorMessage")
+                    refreshDashboardData()
                 }
 
             } catch (exception: Exception) {
@@ -630,11 +521,6 @@ class DashboardActivity : AppCompatActivity() {
         val title = getString(R.string.view_log_title_format, shortUrl)
         UrlViewLogActivity.start(this, urlId, title)
         DebugLogger.d("DashboardActivity", "Starting UrlViewLogActivity for URL ID: $urlId")
-    }
-
-    // Helper function for the adapter to check views count
-    fun getViewsForUrlId(urlId: Int): Int {
-        return dashboardData.find { it.urlId == urlId }?.noOfViews ?: 0
     }
 
     // FIXED: Proper logout with API call

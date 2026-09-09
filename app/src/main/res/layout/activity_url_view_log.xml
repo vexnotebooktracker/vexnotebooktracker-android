@@ -92,8 +92,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="@string/label_ip_address"
+                android:layout_weight="1"
+                android:text="@string/column_header_device"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
@@ -112,8 +112,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/column_header_device"
+                android:layout_weight="2"
+                android:text="@string/label_ip_address"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
