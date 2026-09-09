@@ -55,50 +55,42 @@ class UrlViewLogDetailDialog(
             tvDate.text = formatDate(logDetail.date)
             tvIpAddress.text = logDetail.ipAddress
             tvHostName.text = logDetail.hostName
-            tvDeviceType.text = logDetail.deviceType
-            tvOperatingSystem.text = logDetail.operatingSystem
-            tvBrowserName.text = logDetail.browserName
-            tvBrowserVersion.text = logDetail.browserVersion
+            tvDeviceType.text = joinValues(logDetail.deviceType, logDetail.operatingSystem)
+            tvBrowserName.text = joinValues(logDetail.browserName, logDetail.browserVersion)
             tvReferringUrl.text = logDetail.referringUrl.ifEmpty { context.getString(R.string.direct_access) }
         }
     }
 
-    // Use TimeUtils for GMT to Local conversion with detailed formatting
+    /** Renders "<first>, <second>", skipping either part when the server sent it empty. */
+    private fun joinValues(first: String, second: String): String =
+        listOf(first, second).filter { it.isNotBlank() }.joinToString(", ")
+
+    /**
+     * The API sends this timestamp without a zone; the app parses it as GMT and renders it in the
+     * device's local timezone. The old "(GMT-4:00)" suffix showed the *local* offset, which read
+     * as though the value itself were GMT, so it has been dropped - the value shown is local.
+     */
     private fun formatDate(dateString: String): String {
         return try {
-            // Try TimeUtils first for GMT->Local conversion
             val date = TimeUtils.parseGmtTime(dateString)
 
             if (date != null) {
-                // Use a more detailed format for the detail view, in local timezone
                 val detailedFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss a", Locale.getDefault()).apply {
                     timeZone = TimeZone.getDefault()
                 }
 
                 val detailedLocal = detailedFormat.format(date)
 
-                // Add timezone info for clarity
-                val timeZone = TimeZone.getDefault()
-                val offsetMillis = timeZone.getOffset(System.currentTimeMillis())
-                val offsetHours = offsetMillis / (1000 * 60 * 60)
-                val offsetMinutes = kotlin.math.abs((offsetMillis % (1000 * 60 * 60)) / (1000 * 60))
-                val tzInfo = context.getString(
-                    R.string.timezone_format,
-                    if (offsetHours >= 0) "+" else "",
-                    offsetHours,
-                    offsetMinutes
-                )
+                DebugLogger.d("UrlViewLogDetailDialog", "Detail converted '${dateString}' -> '$detailedLocal' (local)")
 
-                DebugLogger.d("UrlViewLogDetailDialog", "📅 Detail converted '${dateString}' (GMT) -> '$detailedLocal' ($tzInfo)")
-
-                context.getString(R.string.date_with_timezone, detailedLocal, tzInfo)
+                detailedLocal
             } else {
                 // Fallback to TimeUtils display format
                 TimeUtils.gmtToLocalDisplay(dateString)
             }
 
         } catch (e: Exception) {
-            Log.w("UrlViewLogDetailDialog", "⚠️ TimeUtils failed, using fallback for: $dateString", e)
+            Log.w("UrlViewLogDetailDialog", "TimeUtils failed, using fallback for: $dateString", e)
             formatDateFallback(dateString)
         }
     }

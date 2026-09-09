@@ -30,8 +30,9 @@ interface VexTeamsApiService {
     @POST("auth/mobile/login")
     suspend fun mobileLogin(@Body request: MobileLoginRequest): Response<MobileAuthResponse>
 
-    @POST("auth/mobile/refresh")
-    suspend fun refreshToken(@Body request: RefreshTokenRequest): Response<MobileAuthResponse>
+    // auth/mobile/refresh deliberately lives on TokenRefreshService instead, on a client with no
+    // auth interceptor. It also returns RefreshTokenResponse, not MobileAuthResponse - the
+    // endpoint sends no userId/email/firstName/lastName/roleId.
 
     @POST("auth/mobile/validate-session")
     suspend fun validateSession(@Body request: SessionValidationRequest): Response<SessionValidationResponse>

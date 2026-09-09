@@ -5,12 +5,15 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.util.Log
 import org.vexteams.vexnotebooktracker.utils.DebugLogger
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import org.vexteams.vexnotebooktracker.models.*
 import org.vexteams.vexnotebooktracker.network.*
 import org.vexteams.vexnotebooktracker.security.SecureStorage
 import org.vexteams.vexnotebooktracker.security.DeviceInfoCollector
+import org.vexteams.vexnotebooktracker.security.TokenRefresher
 import org.vexteams.vexnotebooktracker.utils.TimeUtils
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -31,7 +34,8 @@ class AuthRepository @Inject constructor(
     @ApplicationContext private val context: Context,
     private val vexTeamsApiService: VexTeamsApiService,
     private val secureStorage: SecureStorage,
-    private val deviceInfoCollector: DeviceInfoCollector
+    private val deviceInfoCollector: DeviceInfoCollector,
+    private val tokenRefresher: TokenRefresher
 ) {
 
     companion object {
@@ -541,54 +545,28 @@ class AuthRepository @Inject constructor(
     }
 
     // Token Refresh
+    //
+    // Delegates to TokenRefresher so this and TokenAuthenticator share one implementation of the
+    // auth/mobile/refresh contract. Routine expiry no longer needs this: JwtAuthInterceptor
+    // applies the sliding token the API returns, and TokenAuthenticator renews on a 401. This
+    // remains for an explicit, user-initiated refresh.
     suspend fun refreshToken(): Flow<Resource<Boolean>> = flow {
-        try {
-            emit(Resource.Loading())
+        emit(Resource.Loading())
 
-            val refreshToken = secureStorage.getRefreshToken()
-            val deviceId = deviceInfoCollector.getDeviceId()
-            val sessionId = secureStorage.getSessionId()
+        when (withContext(Dispatchers.IO) { tokenRefresher.refreshBlocking() }) {
+            TokenRefresher.Result.SUCCESS -> {
+                DebugLogger.d(TAG, "Token refresh successful")
+                emit(Resource.Success(true))
+            }
 
-            if (refreshToken == null || sessionId == null) {
+            TokenRefresher.Result.NO_CREDENTIALS ->
                 emit(Resource.Error("Missing refresh token or session"))
-                return@flow
-            }
 
-            val refreshRequest = RefreshTokenRequest(
-                refreshToken = refreshToken,
-                deviceId = deviceId,
-                sessionId = sessionId
-            )
+            TokenRefresher.Result.REJECTED ->
+                emit(Resource.Error("Session expired - please log in again"))
 
-            val response = vexTeamsApiService.refreshToken(refreshRequest)
-
-            if (response.isSuccessful && response.body() != null) {
-                val authResponse = response.body()!!
-
-                if (authResponse.success) {
-                    // Update tokens
-                    secureStorage.saveAccessToken(authResponse.accessToken)
-                    secureStorage.saveRefreshToken(authResponse.refreshToken)
-
-                    // Update session info
-                    secureStorage.saveSessionInfo(
-                        authResponse.sessionId,
-                        authResponse.expiresIn,
-                        authResponse.slidingExpiration
-                    )
-
-                    DebugLogger.d(TAG, "Token refresh successful")
-                    emit(Resource.Success(true))
-                } else {
-                    emit(Resource.Error(authResponse.message))
-                }
-            } else {
-                emit(Resource.Error("Token refresh failed: ${response.code()}"))
-            }
-
-        } catch (e: Exception) {
-            Log.e(TAG, "Token refresh error", e)
-            emit(Resource.Error("Token refresh error: ${e.message}", e))
+            TokenRefresher.Result.TRANSIENT_FAILURE ->
+                emit(Resource.Error("Token refresh failed - please try again"))
         }
     }
 

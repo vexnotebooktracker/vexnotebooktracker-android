@@ -1,16 +1,21 @@
-// NEW FILE: security/JwtAuthInterceptor.kt
+// security/JwtAuthInterceptor.kt
 // Location: app/src/main/java/org/vexteams/vexnotebooktracker/security/JwtAuthInterceptor.kt
 package org.vexteams.vexnotebooktracker.security
 
 import android.util.Log
 import org.vexteams.vexnotebooktracker.utils.DebugLogger
-import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
-import org.vexteams.vexnotebooktracker.repository.AuthRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Attaches the JWT and device headers to every authenticated request, and picks up the sliding
+ * access token the API hands back.
+ *
+ * Renewal on a 401 is not handled here - that is [TokenAuthenticator]'s job. OkHttp invokes an
+ * Authenticator only on a 401 and tracks the retry chain, which an interceptor cannot do.
+ */
 @Singleton
 class JwtAuthInterceptor @Inject constructor(
     private val secureStorage: SecureStorage,
@@ -19,6 +24,11 @@ class JwtAuthInterceptor @Inject constructor(
 
     companion object {
         private const val TAG = "JwtAuthInterceptor"
+
+        /** Response headers the API uses to hand back a renewed access token. */
+        private const val HEADER_NEW_ACCESS_TOKEN = "X-New-Access-Token"
+        private const val HEADER_TOKEN_REFRESH = "X-Token-Refresh"
+
         private val EXCLUDED_PATHS = listOf(
             "/auth/mobile/login",
             "/auth/mobile/refresh",
@@ -53,67 +63,39 @@ class JwtAuthInterceptor @Inject constructor(
 
         DebugLogger.d(TAG, "Added JWT token to request: $url")
 
-        // Execute request
         val response = chain.proceed(authenticatedRequest)
 
-        // Handle token expiration (401 Unauthorized)
-        if (response.code == 401) {
-            Log.w(TAG, "Received 401 - attempting token refresh")
+        captureSlidingToken(response)
 
-            // Try to refresh token
-            val refreshed = attemptTokenRefresh()
-
-            if (refreshed) {
-                // Retry original request with new token
-                val newToken = secureStorage.getAccessToken()
-                if (newToken != null) {
-                    val retryRequest = originalRequest.newBuilder()
-                        .removeHeader("Authorization")
-                        .addHeader("Authorization", "Bearer $newToken")
-                        .addHeader("X-Device-ID", deviceInfoCollector.getDeviceId())
-                        .addHeader("X-App-Version", getAppVersion())
-                        .build()
-
-                    response.close() // Close original response
-                    DebugLogger.d(TAG, "Retrying request with refreshed token")
-                    return chain.proceed(retryRequest)
-                }
-            } else {
-                Log.e(TAG, "Token refresh failed - user needs to login again")
-                // Clear invalid tokens
-                secureStorage.clearAll()
-            }
-        }
-
+        // A 401 that reaches here is passed straight through to TokenAuthenticator, which
+        // refreshes the token and replays the request.
         return response
     }
 
-    private fun attemptTokenRefresh(): Boolean {
-        return try {
-            val refreshToken = secureStorage.getRefreshToken()
-            val sessionId = secureStorage.getSessionId()
+    /**
+     * Stores the renewed access token the API sends once a session is within five minutes of its
+     * 30-minute inactivity timeout.
+     *
+     * The server mints it in JwtAuthAttribute and BaseApiController returns it as
+     * X-New-Access-Token / X-Token-Refresh on both success and error responses. Applying it keeps
+     * an actively used session alive indefinitely, so the 401 path is rarely reached at all.
+     */
+    private fun captureSlidingToken(response: Response) {
+        val newToken = response.header(HEADER_NEW_ACCESS_TOKEN)
+        if (newToken.isNullOrEmpty()) return
 
-            if (refreshToken == null || sessionId == null) {
-                Log.w(TAG, "Missing refresh token or session ID")
-                return false
-            }
+        if (newToken == secureStorage.getAccessToken()) return
 
-            // Note: This is a simplified approach. In production, you'd want to:
-            // 1. Inject AuthRepository properly or use a separate refresh service
-            // 2. Handle this asynchronously to avoid blocking the interceptor
-            // 3. Implement proper synchronization for concurrent requests
+        secureStorage.saveAccessToken(newToken)
+        // The server only issues this because it just extended the session server-side; mirror
+        // that locally so SecureStorage.isSessionValid() agrees with the server.
+        secureStorage.updateLastActivity()
 
-            runBlocking {
-                // This is a placeholder - you'll need to implement proper refresh logic
-                // by either injecting AuthRepository or creating a separate RefreshService
-                DebugLogger.d(TAG, "Token refresh would be attempted here")
-                // For now, return false to force re-login
-                false
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "Error during token refresh", e)
-            false
-        }
+        DebugLogger.d(
+            TAG,
+            "Applied sliding access token from $HEADER_NEW_ACCESS_TOKEN " +
+                "(${HEADER_TOKEN_REFRESH}=${response.header(HEADER_TOKEN_REFRESH)})"
+        )
     }
 
     private fun getAppVersion(): String {

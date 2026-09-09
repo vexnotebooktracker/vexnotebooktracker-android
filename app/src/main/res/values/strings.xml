@@ -404,22 +404,18 @@
     <string name="touch_record_for_details_hint">Tap the record to view details</string>
 
     <!-- UrlViewLogDetailDialog -->
-    <string name="view_log_detail_title">View Log Detail</string>
+    <string name="view_log_detail_title">Log Details</string>
     <string name="direct_access">Direct access</string>
-    <string name="timezone_format">GMT%s%d:%02d</string>
-    <string name="date_with_timezone">%s (%s)</string>
     <string name="close">Close</string>
     <string name="view_log_dialog_title">View Log</string>
     <string name="column_header_host">Host</string>
     <string name="entry_details_subtitle">Entry Details</string>
-    <string name="detail_label_date">📅 Date:</string>
-    <string name="detail_label_ip_address">🌐 IP Address:</string>
-    <string name="detail_label_host_name">🏠 Host Name:</string>
-    <string name="detail_label_device_type">📱 Device Type:</string>
-    <string name="detail_label_operating_system">💻 Operating System:</string>
-    <string name="detail_label_browser">🌍 Browser:</string>
-    <string name="detail_label_browser_version">🔢 Browser Version:</string>
-    <string name="detail_label_referrer">🔗 Referrer:</string>
+    <string name="detail_label_date">Date:</string>
+    <string name="detail_label_ip_address">IP Address:</string>
+    <string name="detail_label_host_name">Host Name:</string>
+    <string name="detail_label_device_type">Device Type:</string>
+    <string name="detail_label_browser">Browser:</string>
+    <string name="detail_label_referrer">Referrer:</string>
 
     <!-- Field Labels -->
     <string name="label_date">Date</string>
