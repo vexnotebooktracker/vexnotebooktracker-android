@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Outline for the Delete Profile confirmation box: red when focused, gray otherwise -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/red" android:state_focused="true" />
+    <item android:color="@color/red" android:state_hovered="true" />
+    <item android:color="@color/vex_gray" />
+</selector>

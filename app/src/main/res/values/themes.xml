@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme using Material 3 -->
     <style name="AppTheme" parent="Theme.Material3.Light">
         <!-- VEX Brand Colors -->
@@ -51,5 +51,22 @@
         <item name="colorOnSurface">@color/text_primary</item>
         <!-- Ignored on Android 16 (API 36) - see the note in AppTheme above. -->
         <!-- <item name="android:statusBarColor">@color/vex_orange</item> -->
+    </style>
+
+    <!--
+        Delete Profile dialog: always light. AppTheme.NoActionBar is DayNight, and the Material 3
+        dialog paints its background with colorSurfaceContainerHigh, so without this overlay the
+        dialog turned dark on phones in night mode (incl. scheduled / battery-saver dark mode).
+    -->
+    <style name="ThemeOverlay.App.DeleteProfileDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorSurfaceContainerHigh">@color/white</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorOutline">@color/vex_gray</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 </resources>

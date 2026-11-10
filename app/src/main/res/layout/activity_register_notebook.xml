@@ -58,10 +58,12 @@
                     <!-- Short URL -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilShortUrl"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_medium"
                         android:hint="@string/short_url_hint"
+                        app:boxStrokeColor="@color/vex_orange"
                         app:helperText="@string/short_url_helper_text"
                         app:helperTextTextColor="@color/text_secondary"
                         app:counterEnabled="true"
@@ -85,10 +87,12 @@
                     <!-- Notebook URL -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilNotebookUrl"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_medium"
                         android:hint="@string/notebook_url_hint"
+                        app:boxStrokeColor="@color/vex_orange"
                         app:helperText="@string/url_must_start_https"
                         app:helperTextTextColor="@color/text_secondary">
 
@@ -104,10 +108,12 @@
                     <!-- Start Date -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilStartDate"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_medium"
                         android:hint="@string/start_date_time_hint"
+                        app:boxStrokeColor="@color/vex_orange"
                         app:helperText="@string/date_format_helper"
                         app:helperTextTextColor="@color/text_secondary"
                         app:endIconMode="custom"
@@ -127,10 +133,12 @@
                     <!-- End Date -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilEndDate"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_medium"
                         android:hint="@string/end_date_time_hint"
+                        app:boxStrokeColor="@color/vex_orange"
                         app:helperText="@string/date_format_helper"
                         app:helperTextTextColor="@color/text_secondary"
                         app:endIconMode="custom"
@@ -157,11 +165,12 @@
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/tilRedirectionType"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="@string/redirection_type_hint">
+                            android:hint="@string/redirection_type_hint"
+                            app:boxStrokeColor="@color/vex_orange">
 
                             <AutoCompleteTextView
                                 android:id="@+id/actvRedirectionType"
@@ -189,11 +198,12 @@
                     <!-- Team -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilTeam"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_medium"
-                        android:hint="@string/team_hint">
+                        android:hint="@string/team_hint"
+                        app:boxStrokeColor="@color/vex_orange">
 
                         <AutoCompleteTextView
                             android:id="@+id/actvTeam"

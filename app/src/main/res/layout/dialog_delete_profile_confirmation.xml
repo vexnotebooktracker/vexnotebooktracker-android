@@ -4,17 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="@dimen/padding_medium">
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="@dimen/margin_small"
+    android:paddingBottom="@dimen/margin_small">
 
-    <!-- Confirmation Input -->
+    <!-- Confirmation Input (explicit outline so the box is always visible) -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilConfirmation"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
         android:hint="@string/delete_profile_confirm_hint"
-        app:boxStrokeColor="@color/red"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeColor="@color/delete_confirm_box_stroke"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
         app:hintTextColor="@color/red"
         app:startIconDrawable="@drawable/ic_close"
         app:startIconTint="@color/red">
@@ -30,14 +35,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Warning Message -->
+    <!-- Warning Message (white text in a red box) -->
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/bg_delete_warning"
+        android:padding="12dp"
         android:text="@string/delete_warning_message"
-        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-        android:textColor="@color/red"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textColor="@color/white"
         android:gravity="center"
         android:textStyle="bold" />
 

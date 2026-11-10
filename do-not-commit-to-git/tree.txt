@@ -1,0 +1,552 @@
+ Volume in drive F is data
+ Volume Serial Number is E81A-5025
+
+ Directory of F:\design\mobile\android\VexNotebookTracker
+
+08/05/2026  05:45 PM    <DIR>          .
+08/05/2026  05:45 PM    <DIR>          ..
+07/08/2025  01:37 AM               225 .gitignore
+08/05/2026  05:42 PM    <DIR>          .idea
+07/10/2025  06:45 AM    <DIR>          .kotlin
+10/29/2025  12:16 AM           806,566 aab.log
+11/18/2025  07:48 AM             6,420 android-project-tree.txt
+03/07/2026  02:39 PM    <DIR>          app
+07/25/2025  08:13 PM               407 build-release.bat
+07/12/2025  07:42 PM               374 build.gradle.kts
+11/16/2025  09:55 AM             3,409 closed-test-qa.txt
+11/11/2025  05:51 PM         1,104,820 dependencies.txt
+07/29/2025  06:18 PM             2,051 deploy-build.ps1
+09/30/2025  11:09 PM             3,560 deploy-release-with-debug-symbols.ps1
+07/25/2025  08:25 PM             2,077 deploy-release.ps1
+11/10/2025  11:27 PM    <DIR>          gradle
+08/05/2026  05:37 PM             2,103 gradle.properties
+07/08/2025  01:37 AM             5,766 gradlew
+07/08/2025  01:37 AM             2,763 gradlew.bat
+07/25/2025  10:54 PM               212 keystore - Copy.properties
+10/29/2025  12:11 AM               198 keystore.properties
+07/08/2025  01:37 AM               450 local.properties
+10/27/2025  01:48 AM            13,102 prod-applications.docx
+10/28/2025  11:34 PM             1,334 README-build-release.txt
+07/12/2025  07:34 PM               426 settings.gradle.kts
+07/25/2025  10:48 PM             2,755 vexnotebook-release-keystore.jks
+              20 File(s)      1,959,018 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\.idea
+
+08/05/2026  05:42 PM    <DIR>          .
+08/05/2026  05:42 PM    <DIR>          ..
+07/08/2025  01:37 AM                50 .gitignore
+07/08/2025  01:37 AM                20 .name
+07/08/2025  01:37 AM               217 AndroidProjectSystem.xml
+08/05/2026  05:40 PM    <DIR>          caches
+11/10/2025  11:27 PM    <DIR>          codeStyles
+07/08/2025  01:45 AM               174 compiler.xml
+09/17/2025  07:52 PM               668 deploymentTargetSelector.xml
+07/12/2025  09:20 PM               363 deviceManager.xml
+07/10/2025  06:57 PM               691 gradle.xml
+07/08/2025  01:37 AM               263 migrations.xml
+03/14/2026  06:32 AM               409 misc.xml
+07/08/2025  01:37 AM               980 runConfigurations.xml
+08/05/2026  05:37 PM               344 VexNotebookTracker.iml
+08/05/2026  05:40 PM            17,475 workspace.xml
+              12 File(s)         21,654 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\.idea\caches
+
+08/05/2026  05:40 PM    <DIR>          .
+08/05/2026  05:40 PM    <DIR>          ..
+08/05/2026  05:40 PM           110,334 deviceStreaming.xml
+               1 File(s)        110,334 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\.idea\codeStyles
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/08/2025  01:45 AM               146 codeStyleConfig.xml
+07/08/2025  01:45 AM             3,744 Project.xml
+               2 File(s)          3,890 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\.kotlin
+
+07/10/2025  06:45 AM    <DIR>          .
+07/10/2025  06:45 AM    <DIR>          ..
+07/10/2025  07:14 AM    <DIR>          errors
+07/10/2025  11:42 PM    <DIR>          sessions
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\.kotlin\errors
+
+07/10/2025  07:14 AM    <DIR>          .
+07/10/2025  07:14 AM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\.kotlin\sessions
+
+07/10/2025  11:42 PM    <DIR>          .
+07/10/2025  11:42 PM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app
+
+03/07/2026  02:39 PM    <DIR>          .
+03/07/2026  02:39 PM    <DIR>          ..
+07/08/2025  01:37 AM                 6 .gitignore
+11/11/2025  05:50 PM             4,805 build.gradle.kts
+09/20/2025  04:22 PM             3,880 build.gradle.kts.before.enabling.debug.symbols
+08/06/2025  08:05 PM             4,420 proguard-rules.pro
+11/11/2025  05:55 PM    <DIR>          release
+07/08/2025  01:37 AM    <DIR>          src
+               4 File(s)         13,111 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\release
+
+11/11/2025  05:55 PM    <DIR>          .
+11/11/2025  05:55 PM    <DIR>          ..
+11/11/2025  05:55 PM         5,237,122 app-release.aab
+10/29/2025  10:04 PM         3,452,101 app-release.apk
+10/29/2025  10:04 PM    <DIR>          baselineProfiles
+10/29/2025  10:04 PM               721 output-metadata.json
+               3 File(s)      8,689,944 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\release\baselineProfiles
+
+10/29/2025  10:04 PM    <DIR>          .
+10/29/2025  10:04 PM    <DIR>          ..
+11/10/2025  11:27 PM    <DIR>          0
+11/10/2025  11:27 PM    <DIR>          1
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\release\baselineProfiles\0
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+10/29/2025  10:04 PM             2,751 app-release.dm
+               1 File(s)          2,751 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\release\baselineProfiles\1
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+10/29/2025  10:04 PM             2,675 app-release.dm
+               1 File(s)          2,675 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          androidTest
+03/07/2026  02:39 PM    <DIR>          main
+07/08/2025  01:37 AM    <DIR>          test
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\androidTest
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          java
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\androidTest\java
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          org
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\androidTest\java\org
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          vexteams
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\androidTest\java\org\vexteams
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+11/10/2025  11:27 PM    <DIR>          vexnotebooktracker
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\androidTest\java\org\vexteams\vexnotebooktracker
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/08/2025  01:37 AM               689 ExampleInstrumentedTest.kt
+               1 File(s)            689 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main
+
+03/07/2026  02:39 PM    <DIR>          .
+03/07/2026  02:39 PM    <DIR>          ..
+11/11/2025  02:45 PM             4,173 AndroidManifest.xml
+11/11/2025  01:03 PM    <DIR>          assets
+07/12/2025  05:37 PM    <DIR>          java
+07/08/2025  02:34 AM    <DIR>          res
+               1 File(s)          4,173 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\assets
+
+11/11/2025  01:03 PM    <DIR>          .
+11/11/2025  01:03 PM    <DIR>          ..
+11/11/2025  01:03 PM             2,053 about.txt
+11/11/2025  12:12 AM               441 simply_four_steps.txt
+               2 File(s)          2,494 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java
+
+07/12/2025  05:37 PM    <DIR>          .
+07/12/2025  05:37 PM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          org
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          vexteams
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+11/10/2025  11:27 PM    <DIR>          vexnotebooktracker
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+11/10/2025  11:27 PM    <DIR>          di
+11/10/2025  11:27 PM    <DIR>          models
+11/10/2025  11:27 PM    <DIR>          network
+11/10/2025  11:27 PM    <DIR>          repository
+11/10/2025  11:27 PM    <DIR>          security
+11/10/2025  11:52 PM    <DIR>          ui
+11/10/2025  11:27 PM    <DIR>          utils
+07/11/2025  02:23 AM               190 VexNotebookTrackerApplication.kt
+               1 File(s)            190 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\di
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/16/2025  10:31 PM             1,189 SecurityModule.kt
+               1 File(s)          1,189 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\models
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+09/19/2025  01:44 AM             9,533 AuthModels.kt
+08/06/2025  07:19 AM             1,938 DashboardModels.kt
+               2 File(s)         11,471 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\network
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+08/11/2025  01:31 AM             2,553 NetworkModule.kt
+11/02/2025  06:06 PM            11,987 VexTeamsApiService.kt
+               2 File(s)         14,540 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\repository
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+11/02/2025  06:04 PM            39,571 AuthRepository.kt
+               1 File(s)         39,571 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\security
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/12/2025  11:48 PM             2,548 DeviceInfoCollector.kt
+07/24/2025  10:26 PM             4,857 JwtAuthInterceptor.kt
+07/30/2025  01:36 AM             3,006 PlayIntegrityManager.kt
+09/19/2025  01:55 AM            15,268 SecureStorage.kt
+               4 File(s)         25,679 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui
+
+11/10/2025  11:52 PM    <DIR>          .
+11/10/2025  11:52 PM    <DIR>          ..
+11/10/2025  11:27 PM    <DIR>          about
+11/10/2025  11:27 PM    <DIR>          contact
+11/11/2025  01:50 PM    <DIR>          dashboard
+11/10/2025  11:27 PM    <DIR>          editprofile
+11/10/2025  11:55 PM    <DIR>          login
+11/10/2025  11:27 PM    <DIR>          main
+11/11/2025  10:25 AM    <DIR>          register
+11/10/2025  11:27 PM    <DIR>          signup
+11/10/2025  11:52 PM    <DIR>          simplyfoursteps
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\about
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+11/04/2025  04:00 PM             3,816 AboutActivity.kt
+               1 File(s)          3,816 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\contact
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+11/04/2025  04:28 PM             4,933 ContactActivity.kt
+11/04/2025  04:28 PM             4,073 ContactViewModel.kt
+               2 File(s)          9,006 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\dashboard
+
+11/11/2025  01:50 PM    <DIR>          .
+11/11/2025  01:50 PM    <DIR>          ..
+11/06/2025  02:58 PM            28,302 DashboardActivity.kt
+11/04/2025  10:54 PM             5,374 DashboardViewModel.kt
+11/11/2025  01:50 PM            17,058 TableDataAdapter.kt
+11/06/2025  01:54 PM            10,385 UrlViewLogActivity.kt
+11/04/2025  11:00 PM             1,995 UrlViewLogAdapter.kt
+11/04/2025  11:01 PM             4,956 UrlViewLogDetailDialog.kt
+11/04/2025  11:01 PM             2,235 UrlViewLogDialog.kt
+               7 File(s)         70,305 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\editprofile
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+11/04/2025  10:40 PM            18,945 EditProfileActivity.kt
+11/04/2025  10:40 PM            15,443 EditProfileViewModel.kt
+               2 File(s)         34,388 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\login
+
+11/10/2025  11:55 PM    <DIR>          .
+11/10/2025  11:55 PM    <DIR>          ..
+11/10/2025  11:55 PM            12,449 LoginActivity.kt
+11/04/2025  08:07 PM             6,440 LoginViewModel.kt
+07/12/2025  11:22 PM               436 NavigationEvent.kt
+               3 File(s)         19,325 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\main
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+11/04/2025  11:08 PM             4,874 MainActivity.kt
+11/04/2025  11:09 PM             4,018 MainViewModel.kt
+               2 File(s)          8,892 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\register
+
+11/11/2025  10:25 AM    <DIR>          .
+11/11/2025  10:25 AM    <DIR>          ..
+11/11/2025  10:25 AM            20,273 RegisterNotebookActivity.kt
+               1 File(s)         20,273 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\signup
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+11/04/2025  04:18 PM            18,373 SignUpActivity.kt
+11/04/2025  04:19 PM            14,017 SignUpViewModel.kt
+               2 File(s)         32,390 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\ui\simplyfoursteps
+
+11/10/2025  11:52 PM    <DIR>          .
+11/10/2025  11:52 PM    <DIR>          ..
+11/10/2025  11:52 PM             3,907 SimplyFourStepsActivity.kt
+               1 File(s)          3,907 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\java\org\vexteams\vexnotebooktracker\utils
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/25/2025  06:49 AM               996 DebugLogger.kt
+07/30/2025  12:36 AM             9,201 TimeUtils.kt
+               2 File(s)         10,197 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res
+
+07/08/2025  02:34 AM    <DIR>          .
+07/08/2025  02:34 AM    <DIR>          ..
+11/10/2025  11:27 PM    <DIR>          drawable
+11/10/2025  11:55 PM    <DIR>          layout
+08/05/2025  11:06 PM    <DIR>          mipmap-anydpi-v26
+11/10/2025  11:27 PM    <DIR>          mipmap-hdpi
+11/10/2025  11:27 PM    <DIR>          mipmap-mdpi
+11/10/2025  11:27 PM    <DIR>          mipmap-xhdpi
+11/10/2025  11:27 PM    <DIR>          mipmap-xxhdpi
+11/10/2025  11:27 PM    <DIR>          mipmap-xxxhdpi
+11/11/2025  01:04 PM    <DIR>          values
+11/10/2025  11:27 PM    <DIR>          xml
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\drawable
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/29/2025  09:29 AM               484 ic_arrow_back.xml
+07/12/2025  10:52 PM               714 ic_calendar.xml
+07/12/2025  10:07 PM               451 ic_check.xml
+07/29/2025  09:29 AM               505 ic_check_circle.xml
+07/15/2025  11:00 PM               430 ic_close.xml
+08/10/2025  06:01 PM               492 ic_copy.xml
+07/11/2025  11:14 PM               466 ic_email.xml
+11/04/2025  10:43 AM               568 ic_error.xml
+07/29/2025  09:28 AM               427 ic_flag.xml
+07/29/2025  09:28 AM               718 ic_group.xml
+11/04/2025  10:44 AM               680 ic_help.xml
+08/10/2025  10:21 AM               642 ic_help_outline.xml
+10/30/2025  10:51 PM               493 ic_info.xml
+07/12/2025  10:06 PM               572 ic_link.xml
+07/11/2025  11:16 PM               604 ic_lock.xml
+07/11/2025  11:17 PM               448 ic_login.xml
+07/11/2025  11:17 PM               445 ic_logout.xml
+07/12/2025  10:06 PM               432 ic_number.xml
+07/29/2025  09:26 AM               517 ic_person.xml
+07/29/2025  09:30 AM               556 ic_person_add.xml
+07/29/2025  09:28 AM               681 ic_phone.xml
+07/12/2025  10:08 PM               547 ic_refresh.xml
+08/11/2025  06:24 PM               497 ic_save.xml
+11/02/2025  06:00 PM               425 ic_send.xml
+07/13/2025  10:19 AM               562 ic_visibility.xml
+07/12/2025  10:08 PM               209 ripple_background.xml
+              26 File(s)         13,565 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\layout
+
+11/10/2025  11:55 PM    <DIR>          .
+11/10/2025  11:55 PM    <DIR>          ..
+11/06/2025  12:09 PM             2,140 activity_about.xml
+11/06/2025  12:15 PM             8,987 activity_contact.xml
+11/06/2025  03:11 PM            11,448 activity_dashboard.xml
+11/06/2025  12:22 PM            25,208 activity_edit_profile.xml
+11/10/2025  11:55 PM             9,990 activity_login.xml
+07/11/2025  11:23 PM             8,273 activity_main.xml
+11/06/2025  12:29 PM            13,554 activity_register_notebook.xml
+11/06/2025  12:29 PM            21,470 activity_sign_up.xml
+11/10/2025  11:54 PM             2,182 activity_simply_four_steps.xml
+11/10/2025  11:31 PM             6,486 activity_url_view_log.xml
+11/06/2025  12:37 PM             1,899 dialog_delete_profile_confirmation.xml
+11/06/2025  12:38 PM             3,820 dialog_url_view_log.xml
+11/06/2025  12:46 PM            11,393 dialog_url_view_log_detail.xml
+07/29/2025  09:21 AM             1,084 dropdown_menu_popup_item.xml
+11/06/2025  12:49 PM             2,986 item_table_row.xml
+11/10/2025  11:29 PM             2,495 item_url_view_log.xml
+              16 File(s)        133,415 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\mipmap-anydpi-v26
+
+08/05/2025  11:06 PM    <DIR>          .
+08/05/2025  11:06 PM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\mipmap-hdpi
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+08/05/2025  08:37 AM             7,566 ic_launcher.png
+               1 File(s)          7,566 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\mipmap-mdpi
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+08/05/2025  08:39 AM             4,047 ic_launcher.png
+               1 File(s)          4,047 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\mipmap-xhdpi
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+08/05/2025  08:37 AM            10,940 ic_launcher.png
+               1 File(s)         10,940 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\mipmap-xxhdpi
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+08/05/2025  08:36 AM            20,826 ic_launcher.png
+               1 File(s)         20,826 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\mipmap-xxxhdpi
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+08/05/2025  08:35 AM            25,333 ic_launcher.png
+               1 File(s)         25,333 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\values
+
+11/11/2025  01:04 PM    <DIR>          .
+11/11/2025  01:04 PM    <DIR>          ..
+11/10/2025  11:03 PM             1,594 colors.xml
+07/15/2025  10:23 AM             2,497 dimens.xml
+11/04/2025  04:17 PM               809 integers.xml
+11/11/2025  01:04 PM            27,619 strings.xml
+11/10/2025  11:32 PM             2,125 themes.xml
+               5 File(s)         34,644 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\main\res\xml
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/11/2025  01:08 AM               206 backup_rules.xml
+07/11/2025  01:08 AM               493 data_extraction_rules.xml
+07/24/2025  09:40 PM               295 network_security_config.xml
+               3 File(s)            994 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\test
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          java
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\test\java
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          org
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\test\java\org
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+07/08/2025  01:37 AM    <DIR>          vexteams
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\test\java\org\vexteams
+
+07/08/2025  01:37 AM    <DIR>          .
+07/08/2025  01:37 AM    <DIR>          ..
+11/10/2025  11:27 PM    <DIR>          vexnotebooktracker
+               0 File(s)              0 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\app\src\test\java\org\vexteams\vexnotebooktracker
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/08/2025  01:37 AM               355 ExampleUnitTest.kt
+               1 File(s)            355 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\gradle
+
+11/10/2025  11:27 PM    <DIR>          .
+11/10/2025  11:27 PM    <DIR>          ..
+07/08/2025  01:37 AM             1,775 libs.versions.toml
+11/11/2025  03:59 PM    <DIR>          wrapper
+               1 File(s)          1,775 bytes
+
+ Directory of F:\design\mobile\android\VexNotebookTracker\gradle\wrapper
+
+11/11/2025  03:59 PM    <DIR>          .
+11/11/2025  03:59 PM    <DIR>          ..
+07/08/2025  01:37 AM            59,203 gradle-wrapper.jar
+11/11/2025  03:59 PM               321 gradle-wrapper.properties
+               2 File(s)         59,524 bytes
+
+     Total Files Listed:
+             144 File(s)     11,445,098 bytes
+             173 Dir(s)  111,120,019,456 bytes free

@@ -58,7 +58,7 @@
 
     <!-- Profile Management -->
     <string name="delete_profile_title">Delete Profile</string>
-    <string name="delete_profile_message">Are you sure you want to permanently delete your profile?\n\nThis action cannot be undone and will:\n• Delete all your notebooks\n• Remove all your data\n• Log you out of all devices\n\nType \"DELETE\" to confirm:</string>
+    <string name="delete_profile_message">Are you sure you want to permanently delete your profile?\n\nThis action cannot be undone and will:\n• Delete all your notebooks\n• Remove all your data\n• Log you out of all devices</string>
     <string name="delete_profile_confirm_hint">Type DELETE to confirm</string>
     <string name="delete_profile_processing">Deleting profile...</string>
     <string name="delete_profile_confirmation_invalid">Please type \"DELETE\" to confirm</string>

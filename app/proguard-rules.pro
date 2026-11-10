@@ -34,9 +34,9 @@
 
 # ============= KEEP IMPORTANT CLASSES =============
 # Keep your data classes
--keep class org.vexteams.vexnotebooktracker.network.** { *; }
--keep class org.vexteams.vexnotebooktracker.data.** { *; }
--keep class org.vexteams.vexnotebooktracker.models.** { *; }
+-keep class com.bodepudi.vexnotebooktracker.network.** { *; }
+-keep class com.bodepudi.vexnotebooktracker.data.** { *; }
+-keep class com.bodepudi.vexnotebooktracker.models.** { *; }
 
 # Keep Retrofit
 -keep class retrofit2.** { *; }
@@ -62,8 +62,8 @@
 -keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
 
 # Additional safety rules for DashboardUrlRecord array parsing
--keep class org.vexteams.vexnotebooktracker.network.DashboardUrlRecord { *; }
--keep class org.vexteams.vexnotebooktracker.network.DashboardUrlRecord[] { *; }
+-keep class com.bodepudi.vexnotebooktracker.network.DashboardUrlRecord { *; }
+-keep class com.bodepudi.vexnotebooktracker.network.DashboardUrlRecord[] { *; }
 
 # Keep OkHttp
 -dontwarn okhttp3.**
@@ -87,10 +87,10 @@
 -keep class androidx.security.crypto.** { *; }
 -keep class io.jsonwebtoken.** { *; }
 -keep class com.auth0.android.jwt.** { *; }
--keep class org.vexteams.vexnotebooktracker.security.** { *; }
+-keep class com.bodepudi.vexnotebooktracker.security.** { *; }
 
 # Keep API service interface
--keep interface org.vexteams.vexnotebooktracker.network.VexTeamsApiService { *; }
+-keep interface com.bodepudi.vexnotebooktracker.network.VexTeamsApiService { *; }
 
 # Keep Parcelable classes
 -keep class * implements android.os.Parcelable {
